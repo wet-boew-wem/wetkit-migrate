@@ -31,8 +31,8 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
   /**
    * Implements the migration constructor.
    */
-  public function __construct() {
-    parent::__construct(MigrateGroup::getInstance('WetKit', array('default')));
+  public function __construct($arguments) {
+    parent::__construct($arguments);
 
     $this->description = t('Migrate the WET-BOEW default content into the Web Experience Toolkit');
 
@@ -68,8 +68,9 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
     $this->addFieldMapping('title', 'title')
         ->xpath('title');
     $this->addFieldMapping('body', 'body')
-        ->arguments(array('format' => 'wetkit_wysiwyg_text'))
-        ->xpath('body');
+         ->xpath('body');
+    $this->addFieldMapping('body:format', 'format')
+    	->defaultValue('wetkit_wysiwyg_text');
     $this->addFieldMapping('uid')
         ->defaultValue(1);
     $this->addFieldMapping('status')

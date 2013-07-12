@@ -12,8 +12,8 @@ class WetKitMigrateDocumentationMenu extends XMLMigration {
   /**
    * Constructor for the migration.
    */
-  public function __construct() {
-    parent::__construct(MigrateGroup::getInstance('WetKit', array('default')));
+  public function __construct($arguments) {
+    parent::__construct($arguments);
 
     $this->description = t("Migrate the WET-BOEW documentation menu's from the Web Experience Toolkit");
     $this->dependencies = array('WetKitMigrateDocumentation');
@@ -64,8 +64,8 @@ class WetKitMigrateDocumentationMenuLinks extends XMLMigration {
   /**
    * Constructor for the migration.
    */
-  public function __construct() {
-    parent::__construct(MigrateGroup::getInstance('WetKit', array('default')));
+  public function __construct($arguments) {
+    parent::__construct($arguments);
 
     $this->description = t("Migrate the WET-BOEW documentation menu's from the Web Experience Toolkit");
     $this->dependencies = array('WetKitMigrateDocumentationMenu');

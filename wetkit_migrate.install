@@ -34,7 +34,7 @@ function wetkit_migrate_uninstall() {
   variable_delete('WetKitMigrateDocumentation_files');
   variable_delete('WetKitMigrateDocumentationMenu_file');
 
-  MigrationBase::deregisterMigration('WetKitMigrateDefaultContent');
+  //MigrationBase::deregisterMigration('WetKitMigrateDefaultContent');
   MigrationBase::deregisterMigration('WetKitMigrateDocumentation');
   MigrationBase::deregisterMigration('WetKitMigrateDocumentationMenu');
   MigrationBase::deregisterMigration('WetKitMigrateDocumentationMenuLinks');

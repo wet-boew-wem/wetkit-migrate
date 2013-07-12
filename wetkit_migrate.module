@@ -12,6 +12,42 @@ include_once 'wetkit_migrate.features.inc';
 function wetkit_migrate_migrate_api() {
   $api = array(
     'api' => 2,
+
+    // Migrations can be organized into groups. The key used here will be the
+    // machine name of the group, which can be used in Drush:
+    //  drush migrate-import --group=WetKitMigrate
+    //
+    // The title is a required argument which is displayed for the group in the
+    // UI. You may also have additional arguments for any other data which is
+    // common to all migrations in the group.
+    'groups' => array(
+      'WetKitGroupMigrate' => array(
+        'title' => t('WetKitGroupMigrate Imports'),
+      ),
+    ),
+
+    // Here we register the individual migrations. The keys below
+    // are the machine names of the migrations, and the class_name
+    // argument is required. The group_name is optional (defaulting to 'default')
+    // but specifying it is a best practice.
+    'migrations' => array(
+      'WetKitMigrateDefaultContent' => array(
+        'class_name' => 'WetKitMigrateDefaultContent',
+        'group_name' => 'WetKitGroupMigrate',
+      ),
+      'WetKitMigrateDocumentation' => array(
+        'class_name' => 'WetKitMigrateDocumentation',
+        'group_name' => 'WetKitGroupMigrate',
+      ),
+      'WetKitMigrateDocumentationMenu' => array(
+        'class_name' => 'WetKitMigrateDocumentationMenu',
+        'group_name' => 'WetKitGroupMigrate',
+      ),
+      'WetKitMigrateDocumentationMenuLinks' => array(
+        'class_name' => 'WetKitMigrateDocumentationMenuLinks',
+        'group_name' => 'WetKitGroupMigrate',
+      ),
+    ),
   );
   return $api;
 }

@@ -12,8 +12,8 @@ class WetKitMigrateDocumentation extends WetKitMigration {
   /**
    * Implements the migration constructor.
    */
-  public function __construct() {
-    parent::__construct();
+  public function __construct($arguments) {
+    parent::__construct($arguments);
 
     // Human-friendly description of your migration process.
     $this->description = t('Migrate the WET-BOEW documentation from the Web Experience Toolkit');
