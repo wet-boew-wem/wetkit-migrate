@@ -128,13 +128,14 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
    * Prepare some of the rows which require extra logic before can be mapped.
    */
   function prepare($entity, stdClass $row) {
-    // Default Language
+    // Default Language.
+    $entity->language = 'en';
+
+    // Language of Migrated content.
     $language = $row->language;
-    $entity->language = $language;
 
     // Title Module support.
     if (module_exists('title')) {
-      $entity->title = $row->title;
       $entity->title_field[$language][0]['value'] = $row->title;
       $entity->title_field[$language][0]['format'] = 'plain_text';
       $entity->title_field[$language][0]['safe_value'] = $row->title;
@@ -150,22 +151,19 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
       return FALSE;
     }
 
-    // Map the French Content
+    // Map the French Content.
     if ($language == 'fr') {
+      unset($entity->title);
 
-      $result = db_query('SELECT n.sourceid1, n.destid1
-        FROM {migrate_map_wetkitmigratedefaultcontent} n');
-      foreach ($result as $record) {
-        $sourceid_tmp = preg_replace('#_fra_#', '_eng_', $record->sourceid1);
-        if (preg_match('/_fra_/i', $record->sourceid1)) {
-          $result = db_query('SELECT n.destid1 FROM {migrate_map_wetkitmigratedefaultcontent} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $record->sourceid1));
-          foreach ($result as $result_row) {
-            $entity->nid = $result_row->destid1;
-            break;
-          }
-        }
+      // Join Handling.
+      $sourceid = preg_replace('#_fra_#', '_eng_', $row->sourceid);
+      $result = db_query('SELECT n.destid1 FROM {migrate_map_wetkitmigratedefaultcontent} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $sourceid));
+      foreach ($result as $result_row) {
+        $entity->nid = $result_row->destid1;
+        break;
       }
 
+      // Entity Translation Handler.
       $entity->translations = (object) array(
       'original' => 'en',
         'data' => array(
@@ -191,42 +189,5 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
       );
     }
     return $entity;
-  }
-
-  /**
-   * Perform additional tasks after the initial import.
-   */
-  public function postImport() {
-    parent::postImport();
-    /*
-    // i18n Translation Set.
-    $result = db_query('SELECT n.sourceid1, n.destid1
-      FROM {migrate_map_wetkitmigratedefaultcontent} n');
-    foreach ($result as $record) {
-      $sourceid_tmp = preg_replace('#_fra_#', '_eng_', $record->sourceid1);
-      if (preg_match('/_fra_/i', $record->sourceid1)) {
-        $source_nid = 0;
-        $translated_nid = 0;
-        $result = db_query('SELECT n.destid1
-          FROM {migrate_map_wetkitmigratedefaultcontent} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $record->sourceid1));
-        foreach ($result as $result_row) {
-          $translated_nid = $result_row->destid1;
-          $result = db_query('SELECT n.destid1
-          FROM {migrate_map_wetkitmigratedefaultcontent} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $sourceid_tmp));
-          foreach ($result as $result_row) {
-            $source_nid = $result_row->destid1;
-            break;
-          }
-          break;
-        }
-        if (($source_nid != 0) && ($translated_nid != 0)) {
-          db_query('UPDATE {node} SET tnid = :tnid WHERE nid = :nid',
-              array(':tnid' => $source_nid, ':nid' => $source_nid));
-          db_query('UPDATE {node} SET tnid = :tnid WHERE nid = :nid',
-              array(':tnid' => $source_nid, ':nid' => $translated_nid));
-        }
-      }
-    }
-    */
   }
 }
