@@ -62,21 +62,23 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
 
     $items_class = new MigrateItemsXML($items_url, $item_xpath, $item_id_xpath);
     $this->source = new MigrateSourceMultiItems($items_class, $fields);
-    $this->destination = new MigrateDestinationNode('wetkit_page');
+
+    $language = 'en';
+    $text_format = 'wetkit_wysiwyg_text';
+    $node_options = MigrateDestinationNode::options($language, $text_format);
+    $this->destination = new MigrateDestinationNode('wetkit_page', $node_options);
 
     // Main Fields.
-    $this->addFieldMapping('title', 'title')
-        ->xpath('title');
-    $this->addFieldMapping('body', 'body')
-         ->xpath('body');
+    $this->addFieldMapping('title', 'title');
+    $this->addFieldMapping('title_field', 'title_field')
+      ->description(t('Title Field for Content Link'));
+    $this->addFieldMapping('body', 'body');
     $this->addFieldMapping('body:format', 'format')
     	->defaultValue('wetkit_wysiwyg_text');
     $this->addFieldMapping('uid')
         ->defaultValue(1);
     $this->addFieldMapping('status')
         ->defaultValue(1);
-    $this->addFieldMapping('path', 'path')
-        ->xpath('path');
     $this->addFieldMapping('language', 'language');
 
     // Extra Fields.
@@ -88,6 +90,11 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
       ->defaultValue(FILE_EXISTS_REPLACE);
     $this->addFieldMapping('field_featured_image:source_dir')
       ->defaultValue(drupal_get_path('module', 'wetkit_migrate') . '/migrations/default_content/images');
+    // PathAuto mapping: generate automatic alias.
+    if (module_exists('pathauto')) {
+      $this->addFieldMapping('pathauto','pathauto')
+        ->defaultValue('1');
+    }
 
     // Unmapped destination fields.
     $this->addUnmigratedDestinations(array(
@@ -115,10 +122,65 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
   }
 
   /**
+   * Prepare some of the rows which require extra logic before can be mapped.
+   */
+  function prepare($entity, stdClass $row) {
+    // Default Language
+    $language = $row->language;
+    $entity->language = $language;
+
+    // Title Module support.
+    if (module_exists('title')) {
+      $entity->title = $row->title;
+      $entity->title_field[$language][0]['value'] = $row->title;
+      $entity->title_field[$language][0]['format'] = 'plain_text';
+      $entity->title_field[$language][0]['safe_value'] = $row->title;
+    }
+
+    // Set some source fields.
+    $entity->body[$language][0]['value'] = $row->body;
+    $entity->body[$language][0]['format'] = 'wetkit_wysiwyg_text';
+    $entity->body[$language][0]['safe_value'] = $row->body;
+
+    // If the body is empty, don't import this row.
+    if (strlen(trim($entity->body[$language][0]['value'])) == 0) {
+      return FALSE;
+    }
+
+    /*
+    $entity->translations = (object) array(
+    'original' => 'en',
+      'data' => array(
+        'en' => array(
+          'entity_type' => 'node',
+          'entity_id' => $entity->nid,
+          'language' => 'en',
+          'source' => '',
+          'uid' => '0',
+          'status' => '1',
+          'translate' => '0',
+        ),
+        'fr' => array(
+          'entity_type' => 'node',
+          'entity_id' => $entity->nid,
+          'language' => 'fr',
+          'source' => 'en',
+          'uid' => '1',
+          'status' => '1',
+          'translate' => '0',
+        ),
+      )
+    );
+    */
+    return $entity;
+  }
+
+  /**
    * Perform additional tasks after the initial import.
    */
   public function postImport() {
     parent::postImport();
+    /*
     // i18n Translation Set.
     $result = db_query('SELECT n.sourceid1, n.destid1
       FROM {migrate_map_wetkitmigratedefaultcontent} n');
@@ -147,5 +209,6 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
         }
       }
     }
+    */
   }
 }
