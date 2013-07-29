@@ -16,7 +16,7 @@ abstract class WetKitDCMigration extends XMLMigration {
    *   Process the import array.
    */
   public function processImport(array $options = array()) {
-    parent::processImport($options = array());
+    parent::processImport($options);
     // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
     // in each node_insert invocation.
     variable_set('menu_rebuild_needed', FALSE);
@@ -69,10 +69,13 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
     $this->destination = new MigrateDestinationNode('wetkit_page', $node_options);
 
     // Main Fields.
-    $this->addFieldMapping('title', 'title');
+    $this->addFieldMapping('title', 'title')
+        ->xpath('title');
     $this->addFieldMapping('title_field', 'title_field')
+      ->xpath('title')
       ->description(t('Title Field for Content Link'));
-    $this->addFieldMapping('body', 'body');
+    $this->addFieldMapping('body', 'body')
+      ->xpath('body');
     $this->addFieldMapping('body:format', 'format')
     	->defaultValue('wetkit_wysiwyg_text');
     $this->addFieldMapping('uid')
@@ -147,31 +150,46 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
       return FALSE;
     }
 
-    /*
-    $entity->translations = (object) array(
-    'original' => 'en',
-      'data' => array(
-        'en' => array(
-          'entity_type' => 'node',
-          'entity_id' => $entity->nid,
-          'language' => 'en',
-          'source' => '',
-          'uid' => '0',
-          'status' => '1',
-          'translate' => '0',
-        ),
-        'fr' => array(
-          'entity_type' => 'node',
-          'entity_id' => $entity->nid,
-          'language' => 'fr',
-          'source' => 'en',
-          'uid' => '1',
-          'status' => '1',
-          'translate' => '0',
-        ),
-      )
-    );
-    */
+    // Map the French Content
+    if ($language == 'fr') {
+
+      $result = db_query('SELECT n.sourceid1, n.destid1
+        FROM {migrate_map_wetkitmigratedefaultcontent} n');
+      foreach ($result as $record) {
+        $sourceid_tmp = preg_replace('#_fra_#', '_eng_', $record->sourceid1);
+        if (preg_match('/_fra_/i', $record->sourceid1)) {
+          $result = db_query('SELECT n.destid1 FROM {migrate_map_wetkitmigratedefaultcontent} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $record->sourceid1));
+          foreach ($result as $result_row) {
+            $entity->nid = $result_row->destid1;
+            break;
+          }
+        }
+      }
+
+      $entity->translations = (object) array(
+      'original' => 'en',
+        'data' => array(
+          'en' => array(
+            'entity_type' => 'node',
+            'entity_id' => $entity->nid,
+            'language' => 'en',
+            'source' => '',
+            'uid' => '0',
+            'status' => '1',
+            'translate' => '0',
+          ),
+          'fr' => array(
+            'entity_type' => 'node',
+            'entity_id' => $entity->nid,
+            'language' => 'fr',
+            'source' => 'en',
+            'uid' => '1',
+            'status' => '1',
+            'translate' => '0',
+          ),
+        )
+      );
+    }
     return $entity;
   }
 
