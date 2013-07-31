@@ -34,7 +34,7 @@ class WetKitMigrateMegaMenu extends XMLMigration {
       'i18n_mode' => t('The i18n mode of the menu'),
     );
 
-    $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'wetkit_migrate') . '/import/';
+    $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'wetkit_migrate') . '/migrations/menu/';
     $items_url = $xml_folder . 'migrate_menu.xml';
     $item_xpath = '/menu_handler/menu/*/section';
     $item_id_xpath = 'source_id';
@@ -97,7 +97,7 @@ class WetKitMigrateMegaMenuLinks extends XMLMigration {
       'language' => t('The language of the menu'),
     );
 
-    $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'wetkit_migrate') . '/import/';
+    $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'wetkit_migrate') . '/migrations/menu/';
     $items_url = $xml_folder . 'migrate_menu.xml';
     $item_xpath = '/menu_handler/menu_links/*/section';
     $item_id_xpath = 'source_id';
