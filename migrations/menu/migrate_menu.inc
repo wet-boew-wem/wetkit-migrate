@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * migrate_wetkit_menu.inc
+ * migrate_menu.inc
  */
 
 /**
@@ -34,7 +34,7 @@ class WetKitMigrateMegaMenu extends XMLMigration {
       'i18n_mode' => t('The i18n mode of the menu'),
     );
 
-    $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'wetkit_menu') . '/import/';
+    $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'wetkit_migrate') . '/import/';
     $items_url = $xml_folder . 'migrate_menu.xml';
     $item_xpath = '/menu_handler/menu/*/section';
     $item_id_xpath = 'source_id';
