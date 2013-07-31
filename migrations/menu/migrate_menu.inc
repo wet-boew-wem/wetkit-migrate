@@ -5,7 +5,7 @@
  */
 
 /**
- * Migration class for the WetKit. 
+ * Migration class for the WetKit.
  */
 class WetKitMigrateMegaMenu extends XMLMigration {
 
@@ -55,7 +55,7 @@ class WetKitMigrateMegaMenu extends XMLMigration {
 }
 
 /**
- * Migration class for the About Us module (Menus) on the Statcan website. 
+ * Migration class for the About Us module (Menus) on the Statcan website.
  */
 class WetKitMigrateMegaMenuLinks extends XMLMigration {
 
@@ -97,7 +97,7 @@ class WetKitMigrateMegaMenuLinks extends XMLMigration {
       'language' => t('The language of the menu'),
     );
 
-    $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'wetkit_menu') . '/import/';
+    $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'wetkit_migrate') . '/import/';
     $items_url = $xml_folder . 'migrate_menu.xml';
     $item_xpath = '/menu_handler/menu_links/*/section';
     $item_id_xpath = 'source_id';
