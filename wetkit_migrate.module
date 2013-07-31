@@ -47,6 +47,14 @@ function wetkit_migrate_migrate_api() {
         'class_name' => 'WetKitMigrateDocumentationMenuLinks',
         'group_name' => 'WetKitGroupMigrate',
       ),
+      'WetKitMigrateMegaMenu' => array(
+        'class_name' => 'WetKitMigrateMegaMenu',
+        'group_name' => 'WetKitGroupMigrate',
+      ),
+      'WetKitMigrateMegaMenuLinks' => array(
+        'class_name' => 'WetKitMigrateMegaMenuLinks',
+        'group_name' => 'WetKitGroupMigrate',
+      ),
     ),
   );
   return $api;

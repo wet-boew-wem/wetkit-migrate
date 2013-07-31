@@ -20,9 +20,6 @@ abstract class WetKitMigration extends Migration {
     // the particular migration, with their role and contact info. We default
     // the list in shared class; it can be overridden for specific migrations.
     $this->team = array(
-      new MigrateTeamMember('Robert Turnbull', 'robert.turnbull@uottawa.ca', t('Web Developer')),
-      new MigrateTeamMember('Gordon Guest', 'gordon.guest@statcan.gc.ca', t('Web Developer')),
-      new MigrateTeamMember('Ross Thompson', 'ross.thompson@statcan.gc.ca', t('Web Developer')),
       new MigrateTeamMember('William Hearn', 'william.hearn@statcan.gc.ca', t('Web Developer')),
     );
   }

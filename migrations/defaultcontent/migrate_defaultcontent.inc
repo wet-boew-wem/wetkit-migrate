@@ -55,14 +55,15 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
       'body' => t('Description'),
     );
 
-    $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'wetkit_migrate') . '/migrations/default_content';
-    $items_url = $xml_folder . '/migrate_default_content.xml';
+    $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'wetkit_migrate') . '/migrations/defaultcontent';
+    $items_url = $xml_folder . '/migrate_defaultcontent.xml';
     $item_xpath = '/default_content/*/content';
     $item_id_xpath = 'source_id';
 
     $items_class = new MigrateItemsXML($items_url, $item_xpath, $item_id_xpath);
     $this->source = new MigrateSourceMultiItems($items_class, $fields);
 
+    // Defaults for Node Destination Migration.
     $language = 'en';
     $text_format = 'wetkit_wysiwyg_text';
     $node_options = MigrateDestinationNode::options($language, $text_format);
@@ -92,7 +93,7 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
     $this->addFieldMapping('field_featured_image:file_replace')
       ->defaultValue(FILE_EXISTS_REPLACE);
     $this->addFieldMapping('field_featured_image:source_dir')
-      ->defaultValue(drupal_get_path('module', 'wetkit_migrate') . '/migrations/default_content/images');
+      ->defaultValue(drupal_get_path('module', 'wetkit_migrate') . '/migrations/defaultcontent/images');
     // PathAuto mapping: generate automatic alias.
     if (module_exists('pathauto')) {
       $this->addFieldMapping('pathauto','pathauto')
@@ -146,13 +147,19 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
     $entity->body[$language][0]['format'] = 'wetkit_wysiwyg_text';
     $entity->body[$language][0]['safe_value'] = $row->body;
 
+    // If the title is empty, don't import this row.
+    if (strlen(trim($entity->title_field[$language][0]['value'])) == 0) {
+      throw new MigrateException(t("No title detected for: @sourceid", array('@sourceid' => $row->sourceid)), Migration::MESSAGE_NOTICE, MigrateMap::STATUS_IGNORED);
+    }
+
     // If the body is empty, don't import this row.
     if (strlen(trim($entity->body[$language][0]['value'])) == 0) {
-      return FALSE;
+      throw new MigrateException(t("No body detected for: @sourceid", array('@sourceid' => $row->sourceid)), Migration::MESSAGE_NOTICE, MigrateMap::STATUS_IGNORED);
     }
 
     // Map the French Content.
     if ($language == 'fr') {
+      // Only one authoritative title, rest is title_field.
       unset($entity->title);
 
       // Join Handling.
@@ -190,4 +197,15 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
     }
     return $entity;
   }
+
+ /**
+  * By default populate the data source row with fields parsed from the HTML.
+  *
+  * @param array $row
+  *   The prepared row that will be modified.
+  */
+  public function complete($entity, stdClass $row) {
+
+  }
+
 }
