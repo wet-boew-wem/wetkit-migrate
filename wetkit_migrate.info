@@ -8,6 +8,7 @@ dependencies[] = features
 dependencies[] = i18n_taxonomy
 dependencies[] = list
 dependencies[] = migrate
+dependencies[] = migrate_extras
 dependencies[] = migrate_ui
 dependencies[] = options
 dependencies[] = page_manager
