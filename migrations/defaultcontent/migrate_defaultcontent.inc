@@ -94,10 +94,11 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
       ->defaultValue(FILE_EXISTS_REPLACE);
     $this->addFieldMapping('field_featured_image:source_dir')
       ->defaultValue(drupal_get_path('module', 'wetkit_migrate') . '/migrations/defaultcontent/images');
+
     // PathAuto mapping: generate automatic alias.
     if (module_exists('pathauto')) {
       $this->addFieldMapping('pathauto','pathauto')
-        ->defaultValue('1');
+        ->defaultValue(1);
     }
 
     // Unmapped destination fields.
@@ -169,6 +170,11 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
         $entity->nid = $result_row->destid1;
         break;
       }
+
+      // Pathauto.
+      module_load_include('inc', 'pathauto');
+      $path = drupal_get_path_alias('node/' . $entity->nid, $language);
+      pathauto_create_alias('node', 'update', 'node/' . $entity->nid, array('node' => $entity), 'wetkit_page', $language);
 
       // Entity Translation Handler.
       $entity->translations = (object) array(
