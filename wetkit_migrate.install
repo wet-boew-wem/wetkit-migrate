@@ -21,6 +21,12 @@ function wetkit_migrate_install() {
   MigrationBase::registerMigration('WetKitMigrateDocumentationMenuLinks');
   MigrationBase::registerMigration('WetKitMigrateMegaMenu');
   MigrationBase::registerMigration('WetKitMigrateMegaMenuLinks');
+  MigrationBase::registerMigration('WetKitMigrateSiteMenu');
+  MigrationBase::registerMigration('WetKitMigrateSiteMenuLinks');
+
+  if (function_exists('migrate_static_registration')) {
+    migrate_static_registration();
+  }
 }
 
 /**
@@ -41,6 +47,8 @@ function wetkit_migrate_uninstall() {
   MigrationBase::deregisterMigration('WetKitMigrateDocumentationMenuLinks');
   MigrationBase::deregisterMigration('WetKitMigrateMegaMenu');
   MigrationBase::deregisterMigration('WetKitMigrateMegaMenuLinks');
+  MigrationBase::deregisterMigration('WetKitMigrateSiteMenu');
+  MigrationBase::deregisterMigration('WetKitMigrateSiteMenuLinks');
 
   // Get global variable array.
   global $conf;

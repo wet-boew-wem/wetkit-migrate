@@ -32,4 +32,5 @@ files[] = migrations/wetkit_migrate_link.inc
 files[] = migrations/defaultcontent/migrate_defaultcontent.inc
 files[] = migrations/documentation/migrate_documentation.inc
 files[] = migrations/documentation/migrate_documentation_menu.inc
-files[] = migrations/menu/migrate_menu.inc
+files[] = migrations/menu/migrate_mega_menu.inc
+files[] = migrations/menu/migrate_site_menu.inc

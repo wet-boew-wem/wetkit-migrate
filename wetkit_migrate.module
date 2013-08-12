@@ -21,8 +21,17 @@ function wetkit_migrate_migrate_api() {
     // UI. You may also have additional arguments for any other data which is
     // common to all migrations in the group.
     'groups' => array(
-      'WetKitGroupMigrate' => array(
-        'title' => t('WetKitGroupMigrate Imports'),
+      'DefaultContentMigrate' => array(
+        'title' => t('Default Content Imports'),
+      ),
+      'DocumentationMigrate' => array(
+        'title' => t('Documentation Imports'),
+      ),
+      'MegaMenuMigrate' => array(
+        'title' => t('Mega Menu Imports'),
+      ),
+      'SiteMenuMigrate' => array(
+        'title' => t('Site Menu Imports'),
       ),
     ),
 
@@ -33,27 +42,35 @@ function wetkit_migrate_migrate_api() {
     'migrations' => array(
       'WetKitMigrateDefaultContent' => array(
         'class_name' => 'WetKitMigrateDefaultContent',
-        'group_name' => 'WetKitGroupMigrate',
+        'group_name' => 'DefaultContentMigratetGroupMigrate',
       ),
       'WetKitMigrateDocumentation' => array(
         'class_name' => 'WetKitMigrateDocumentation',
-        'group_name' => 'WetKitGroupMigrate',
+        'group_name' => 'DocumentationMigrate',
       ),
       'WetKitMigrateDocumentationMenu' => array(
         'class_name' => 'WetKitMigrateDocumentationMenu',
-        'group_name' => 'WetKitGroupMigrate',
+        'group_name' => 'DocumentationMigrate',
       ),
       'WetKitMigrateDocumentationMenuLinks' => array(
         'class_name' => 'WetKitMigrateDocumentationMenuLinks',
-        'group_name' => 'WetKitGroupMigrate',
+        'group_name' => 'DocumentationMigrate',
       ),
       'WetKitMigrateMegaMenu' => array(
         'class_name' => 'WetKitMigrateMegaMenu',
-        'group_name' => 'WetKitGroupMigrate',
+        'group_name' => 'MegaMenuMigrate',
       ),
       'WetKitMigrateMegaMenuLinks' => array(
         'class_name' => 'WetKitMigrateMegaMenuLinks',
-        'group_name' => 'WetKitGroupMigrate',
+        'group_name' => 'MegaMenuMigrate',
+      ),
+      'WetKitMigrateSiteMenu' => array(
+        'class_name' => 'WetKitMigrateSiteMenu',
+        'group_name' => 'SiteMenuMigrate',
+      ),
+      'WetKitMigrateSiteMenuLinks' => array(
+        'class_name' => 'WetKitMigrateSiteMenuLinks',
+        'group_name' => 'SiteMenuMigrate',
       ),
     ),
   );
