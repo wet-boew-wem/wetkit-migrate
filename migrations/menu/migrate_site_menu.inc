@@ -172,11 +172,21 @@ class WetKitMigrateSiteMenuLinks extends XMLMigration {
 
     // Set the Options.
     $options = array();
-    $options += array(
-      'attributes' => array(
-        'title' => NULL,
-      ),
-    );
+
+    if (isset($xmlobj->attribute_title)) {
+      $options += array(
+        'attributes' => array(
+          'title' => $xmlobj->attribute_title->asXML(),
+        ),
+      );
+    }
+    else {
+      $options += array(
+        'attributes' => array(
+          'title' => NULL,
+        ),
+      );
+    }
 
     $row->options = $options;
 

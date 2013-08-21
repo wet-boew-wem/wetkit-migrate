@@ -36,13 +36,15 @@
                 <menu_name>menu-wet-footer</menu_name>
                 <link_title>Health</link_title>
                 <link_path>http://healthycanadians.gc.ca/index-eng.php</link_path>
+                <attribute_title>healthycanadians.gc.ca</attribute_title>
                 <weight>1</weight>
             </section>
             <section>
                 <source_id>menu_wet_footer_eng_2</source_id>
                 <menu_name>menu-wet-footer</menu_name>
                 <link_title>Travel</link_title>
-                <link_path>http://www.voyage.gc.ca/index-eng.asp</link_path>
+                <link_path>http://www.voyage.gc.ca/index-eng.as</link_path>
+                <attribute_title>travel.gc.ca</attribute_title>
                 <weight>2</weight>
             </section>
             <section>
@@ -50,6 +52,7 @@
                 <menu_name>menu-wet-footer</menu_name>
                 <link_title>Service Canada</link_title>
                 <link_path>http://www.servicecanada.gc.ca/eng/home.shtml</link_path>
+                <attribute_title>servicecanada.gc.ca</attribute_title>
                 <weight>3</weight>
             </section>
             <section>
@@ -57,6 +60,7 @@
                 <menu_name>menu-wet-footer</menu_name>
                 <link_title>Jobs</link_title>
                 <link_path>http://www.jobbank.gc.ca/intro-eng.aspx</link_path>
+                <attribute_title>jobbank.gc.ca</attribute_title>
                 <weight>4</weight>
             </section>
             <section>
@@ -64,6 +68,7 @@
                 <menu_name>menu-wet-footer</menu_name>
                 <link_title>Economy</link_title>
                 <link_path>http://actionplan.gc.ca/en</link_path>
+                <attribute_title>actionplan.gc.ca</attribute_title>
                 <weight>5</weight>
             </section>
             <section>
@@ -231,6 +236,7 @@
                 <menu_name>menu-wet-footer</menu_name>
                 <link_title>Santé</link_title>
                 <link_path>http://healthycanadians.gc.ca/index-fra.php</link_path>
+                <attribute_title>canadiensensante.gc.ca</attribute_title>
                 <weight>1</weight>
             </section>
             <section>
@@ -238,6 +244,7 @@
                 <menu_name>menu-wet-footer</menu_name>
                 <link_title>Voyage</link_title>
                 <link_path>http://www.voyage.gc.ca/index-fra.asp</link_path>
+                <attribute_title>voyage.gc.ca</attribute_title>
                 <weight>2</weight>
             </section>
             <section>
@@ -245,20 +252,23 @@
                 <menu_name>menu-wet-footer</menu_name>
                 <link_title>Service Canada</link_title>
                 <link_path>http://www.servicecanada.gc.ca/fra/accueil.shtml</link_path>
+                <attribute_title>canadiensensante.gc.ca</attribute_title>
                 <weight>3</weight>
             </section>
             <section>
                 <source_id>menu_wet_footer_fra_4</source_id>
                 <menu_name>menu-wet-footer</menu_name>
                 <link_title>Emplois</link_title>
-                <link_path>http://www.jobbank.gc.ca/intro-fra.aspx</link_path>
+                <link_path>http://www.guichetemplois.gc.ca/Intro-fra.aspx</link_path>
+                <attribute_title>guichetemplois.gc.ca</attribute_title>
                 <weight>4</weight>
             </section>
             <section>
                 <source_id>menu_wet_footer_fra_5</source_id>
                 <menu_name>menu-wet-footer</menu_name>
                 <link_title>Économie</link_title>
-                <link_path>http://actionplan.gc.ca/fr</link_path>
+                <link_path>http://www.plandaction.gc.ca/fr</link_path>
+                <attribute_title>plandaction.gc.ca</attribute_title>
                 <weight>5</weight>
             </section>
             <section>
