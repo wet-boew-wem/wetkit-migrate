@@ -69,9 +69,7 @@ function wetkit_migrate_default_page_manager_handlers() {
       'pearson_first' => NULL,
       'pearson_second' => NULL,
       'pearson_bottom' => NULL,
-      'wetkit_one_100_top' => NULL,
-      'wetkit_one_100_content' => NULL,
-      'wetkit_one_100_bottom' => NULL,
+      'pearson_third' => NULL,
     ),
   );
   $display->cache = array();
@@ -152,49 +150,6 @@ function wetkit_migrate_default_page_manager_handlers() {
     $pane->uuid = '0e0f2d1d-1f7f-b034-0592-36072def1eab';
     $display->content['new-0e0f2d1d-1f7f-b034-0592-36072def1eab'] = $pane;
     $display->panels['pearson_first'][2] = 'new-0e0f2d1d-1f7f-b034-0592-36072def1eab';
-    $pane = new stdClass();
-    $pane->pid = 'new-107225ea-623b-ff54-b938-49e1ef2dee23';
-    $pane->panel = 'pearson_second';
-    $pane->type = 'menu_tree';
-    $pane->subtype = 'document_grd';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'path_visibility',
-          'settings' => array(
-            'visibility_setting' => '1',
-            'paths' => 'demos/grids/*',
-          ),
-          'context' => 'empty',
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array(
-      'menu_name' => 'document_grd',
-      'parent_mlid' => 'document_grd:0',
-      'title_link' => 0,
-      'admin_title' => '',
-      'level' => '1',
-      'follow' => 0,
-      'depth' => 0,
-      'expanded' => 1,
-      'sort' => 0,
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '107225ea-623b-ff54-b938-49e1ef2dee23';
-    $display->content['new-107225ea-623b-ff54-b938-49e1ef2dee23'] = $pane;
-    $display->panels['pearson_second'][0] = 'new-107225ea-623b-ff54-b938-49e1ef2dee23';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -250,7 +205,7 @@ function wetkit_migrate_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display();
-  $display->layout = 'wetkit_one_100';
+  $display->layout = 'pearson';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -259,9 +214,7 @@ function wetkit_migrate_default_page_manager_handlers() {
       'pearson_first' => NULL,
       'pearson_second' => NULL,
       'pearson_bottom' => NULL,
-      'wetkit_one_100_top' => NULL,
-      'wetkit_one_100_content' => NULL,
-      'wetkit_one_100_bottom' => NULL,
+      'pearson_third' => NULL,
     ),
   );
   $display->cache = array();
@@ -271,7 +224,7 @@ function wetkit_migrate_default_page_manager_handlers() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-f924848d-6e73-9284-f948-dc4764c83d5d';
-    $pane->panel = 'wetkit_one_100_content';
+    $pane->panel = 'pearson_first';
     $pane->type = 'page_title';
     $pane->subtype = 'page_title';
     $pane->shown = TRUE;
@@ -293,10 +246,10 @@ function wetkit_migrate_default_page_manager_handlers() {
     $pane->locks = array();
     $pane->uuid = 'f924848d-6e73-9284-f948-dc4764c83d5d';
     $display->content['new-f924848d-6e73-9284-f948-dc4764c83d5d'] = $pane;
-    $display->panels['wetkit_one_100_content'][0] = 'new-f924848d-6e73-9284-f948-dc4764c83d5d';
+    $display->panels['pearson_first'][0] = 'new-f924848d-6e73-9284-f948-dc4764c83d5d';
     $pane = new stdClass();
     $pane->pid = 'new-a9f4d870-b86b-9fd4-0d3d-f64eb3f85fe0';
-    $pane->panel = 'wetkit_one_100_content';
+    $pane->panel = 'pearson_first';
     $pane->type = 'page_tabs';
     $pane->subtype = 'page_tabs';
     $pane->shown = TRUE;
@@ -317,10 +270,10 @@ function wetkit_migrate_default_page_manager_handlers() {
     $pane->locks = array();
     $pane->uuid = 'a9f4d870-b86b-9fd4-0d3d-f64eb3f85fe0';
     $display->content['new-a9f4d870-b86b-9fd4-0d3d-f64eb3f85fe0'] = $pane;
-    $display->panels['wetkit_one_100_content'][1] = 'new-a9f4d870-b86b-9fd4-0d3d-f64eb3f85fe0';
+    $display->panels['pearson_first'][1] = 'new-a9f4d870-b86b-9fd4-0d3d-f64eb3f85fe0';
     $pane = new stdClass();
     $pane->pid = 'new-ebab45fd-8ddc-0a74-c568-c4f12d3062d1';
-    $pane->panel = 'wetkit_one_100_content';
+    $pane->panel = 'pearson_first';
     $pane->type = 'entity_view';
     $pane->subtype = 'node';
     $pane->shown = TRUE;
@@ -341,7 +294,7 @@ function wetkit_migrate_default_page_manager_handlers() {
     $pane->locks = array();
     $pane->uuid = 'ebab45fd-8ddc-0a74-c568-c4f12d3062d1';
     $display->content['new-ebab45fd-8ddc-0a74-c568-c4f12d3062d1'] = $pane;
-    $display->panels['wetkit_one_100_content'][2] = 'new-ebab45fd-8ddc-0a74-c568-c4f12d3062d1';
+    $display->panels['pearson_first'][2] = 'new-ebab45fd-8ddc-0a74-c568-c4f12d3062d1';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
