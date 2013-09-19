@@ -160,8 +160,6 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
 
     // Map the French Content.
     if ($language == 'fr') {
-      // Only one authoritative title, rest is title_field.
-      unset($entity->title);
 
       // Join Handling.
       $sourceid = preg_replace('#_fra_#', '_eng_', $row->sourceid);
@@ -170,6 +168,10 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
         $entity->nid = $result_row->destid1;
         break;
       }
+
+      // Set title with English title for defaults.
+      $nodes = node_load($entity->nid);
+      $entity->title = $nodes->title;
 
       // Pathauto.
       module_load_include('inc', 'pathauto');
