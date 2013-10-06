@@ -84,7 +84,7 @@ function wetkit_migrate_menu() {
   $items = array();
 
   $items['admin/wetkit/wetkit_settings/wetkit_migration'] = array(
-    'title' => 'WetKit Migration',
+    'title' => 'Migration',
     'description' => 'Configure database settings for the WetKit content migration.',
     'page callback' => 'drupal_get_form',
     'file' => 'wetkit_migrate.pages.inc',
