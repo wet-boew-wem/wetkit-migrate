@@ -22,7 +22,7 @@ function wetkit_migrate_migrate_api() {
     // common to all migrations in the group.
     'groups' => array(
       'DefaultContentMigrate' => array(
-        'title' => t('Default Content Imports'),
+        'title' => t('Content Imports'),
       ),
       'DocumentationMigrate' => array(
         'title' => t('Documentation Imports'),
@@ -42,7 +42,7 @@ function wetkit_migrate_migrate_api() {
     'migrations' => array(
       'WetKitMigrateDefaultContent' => array(
         'class_name' => 'WetKitMigrateDefaultContent',
-        'group_name' => 'DefaultContentMigratetGroupMigrate',
+        'group_name' => 'DefaultContentMigrate',
       ),
       'WetKitMigrateDocumentation' => array(
         'class_name' => 'WetKitMigrateDocumentation',
