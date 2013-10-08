@@ -165,11 +165,6 @@ class WetKitMigrateMegaMenuLinks extends XMLMigration {
       $row->external = 1;
     }
 
-    // The mlid to parse.
-    if (isset($xmlobj->mlid)) {
-      $row->mlid = '2000';
-    }
-
     // Set the Options.
     $options = array();
     $options += array(

@@ -61,7 +61,7 @@
                 <source_id>main_menu_eng_3</source_id>
                 <menu_name>main-menu</menu_name>
                 <link_title>GitHub</link_title>
-                <link_path>front</link_path>
+                <link_path>https://github.com</link_path>
                 <weight>3</weight>
             </section>
             <section>
@@ -174,7 +174,7 @@
                 <source_id>megamenu_eng_2_d</source_id>
                 <menu_name>megamenu</menu_name>
                 <link_title>Drupal Blogs</link_title>
-                <link_path>http://www.codeenigma.com/blog/drupal-panels-you-ought-to-love-them</link_path>
+                <link_path>http://drupal.org/planet</link_path>
                 <parent>megamenu_eng_2</parent>
                 <weight>4</weight>
             </section>
@@ -190,7 +190,7 @@
                 <source_id>megamenu_eng_2_f</source_id>
                 <menu_name>megamenu</menu_name>
                 <link_title>CTools Plugins</link_title>
-                <link_path>http://www.codeenigma.com/blog/drupal-panels-you-ought-to-love-them</link_path>
+                <link_path>http://internetdevels.com/blog/ctools-content-type</link_path>
                 <parent>megamenu_eng_2_d</parent>
                 <weight>1</weight>
             </section>
@@ -205,7 +205,7 @@
             <section>
                 <source_id>megamenu_eng_2_h</source_id>
                 <menu_name>megamenu</menu_name>
-                <link_title>Panopoly Base Distribution</link_title>
+                <link_title>Spark Distribution</link_title>
                 <link_path>http://drupal.org/project/panopoly</link_path>
                 <parent>megamenu_eng_2_g</parent>
                 <weight>1</weight>
@@ -213,8 +213,8 @@
             <section>
                 <source_id>megamenu_eng_2_i</source_id>
                 <menu_name>megamenu</menu_name>
-                <link_title>WET Distribution</link_title>
-                <link_path>http://drupal.org/project/wet</link_path>
+                <link_title>Drupal WxT Distribution</link_title>
+                <link_path>http://drupal.org/project/wetkit</link_path>
                 <parent>megamenu_eng_2_g</parent>
                 <weight>2</weight>
             </section>
@@ -238,7 +238,7 @@
                 <source_id>megamenu_eng_3</source_id>
                 <menu_name>megamenu</menu_name>
                 <link_title>GitHub</link_title>
-                <link_path>front</link_path>
+                <link_path>https://github.com</link_path>
                 <weight>3</weight>
             </section>
             <section>
@@ -261,7 +261,7 @@
                 <source_id>megamenu_eng_3_c</source_id>
                 <menu_name>megamenu</menu_name>
                 <link_title>Wiki Page</link_title>
-                <link_path>https://github.com/wet-boew/wet-boew/wiki</link_path>
+                <link_path>http://wiki.drupalwxt.org</link_path>
                 <parent>megamenu_eng_3_a</parent>
                 <weight>1</weight>
             </section>
@@ -293,7 +293,7 @@
                 <source_id>megamenu_eng_3_g</source_id>
                 <menu_name>megamenu</menu_name>
                 <link_title>Wiki Page</link_title>
-                <link_path>https://github.com/wet-boew/wet-boew/wiki</link_path>
+                <link_path>http://wiki.drupalwxt.org</link_path>
                 <parent>megamenu_eng_3_e</parent>
                 <weight>1</weight>
             </section>
@@ -396,7 +396,7 @@
                 <source_id>sidebar_eng_2_d</source_id>
                 <menu_name>sidebar</menu_name>
                 <link_title>Drupal Blogs</link_title>
-                <link_path>http://www.codeenigma.com/blog/drupal-panels-you-ought-to-love-them</link_path>
+                <link_path>http://drupal.org/planet</link_path>
                 <parent>sidebar_eng_2</parent>
                 <weight>4</weight>
             </section>
@@ -412,7 +412,7 @@
                 <source_id>sidebar_eng_2_f</source_id>
                 <menu_name>sidebar</menu_name>
                 <link_title>CTools Plugins</link_title>
-                <link_path>http://www.codeenigma.com/blog/drupal-panels-you-ought-to-love-them</link_path>
+                <link_path>http://internetdevels.com/blog/ctools-content-type</link_path>
                 <parent>sidebar_eng_2_d</parent>
                 <weight>1</weight>
             </section>
@@ -427,7 +427,7 @@
             <section>
                 <source_id>sidebar_eng_2_h</source_id>
                 <menu_name>sidebar</menu_name>
-                <link_title>Panopoly Base Distribution</link_title>
+                <link_title>Spark Distribution</link_title>
                 <link_path>http://drupal.org/project/panopoly</link_path>
                 <parent>sidebar_eng_2_g</parent>
                 <weight>1</weight>
@@ -435,8 +435,8 @@
             <section>
                 <source_id>sidebar_eng_2_i</source_id>
                 <menu_name>sidebar</menu_name>
-                <link_title>WET Distribution</link_title>
-                <link_path>http://drupal.org/project/wet</link_path>
+                <link_title>Drupal WxT Distribution</link_title>
+                <link_path>http://drupal.org/project/wetkit</link_path>
                 <parent>sidebar_eng_2_g</parent>
                 <weight>2</weight>
             </section>
@@ -460,7 +460,7 @@
                 <source_id>sidebar_eng_3</source_id>
                 <menu_name>sidebar</menu_name>
                 <link_title>GitHub</link_title>
-                <link_path>front</link_path>
+                <link_path>https://github.com</link_path>
                 <weight>3</weight>
             </section>
             <section>
@@ -483,7 +483,7 @@
                 <source_id>sidebar_eng_3_c</source_id>
                 <menu_name>sidebar</menu_name>
                 <link_title>Wiki Page</link_title>
-                <link_path>https://github.com/wet-boew/wet-boew/wiki</link_path>
+                <link_path>http://wiki.drupalwxt.org</link_path>
                 <parent>sidebar_eng_3_a</parent>
                 <weight>1</weight>
             </section>
@@ -515,7 +515,7 @@
                 <source_id>sidebar_eng_3_g</source_id>
                 <menu_name>sidebar</menu_name>
                 <link_title>Wiki Page</link_title>
-                <link_path>https://github.com/wet-boew/wet-boew/wiki</link_path>
+                <link_path>http://wiki.drupalwxt.org</link_path>
                 <parent>sidebar_eng_3_e</parent>
                 <weight>1</weight>
             </section>
@@ -606,7 +606,7 @@
                 <source_id>main_menu_fra_3</source_id>
                 <menu_name>main-menu</menu_name>
                 <link_title>GitHub</link_title>
-                <link_path>front</link_path>
+                <link_path>https://github.com</link_path>
                 <weight>3</weight>
             </section>
             <section>
@@ -719,7 +719,7 @@
                 <source_id>megamenu_fra_2_d</source_id>
                 <menu_name>megamenu</menu_name>
                 <link_title>Blogues du Drupal</link_title>
-                <link_path>http://www.codeenigma.com/blog/drupal-panels-you-ought-to-love-them</link_path>
+                <link_path>http://drupal.org/planet</link_path>
                 <parent>megamenu_fra_2</parent>
                 <weight>4</weight>
             </section>
@@ -735,7 +735,7 @@
                 <source_id>megamenu_fra_2_f</source_id>
                 <menu_name>megamenu</menu_name>
                 <link_title>CTools Plugins</link_title>
-                <link_path>http://www.codeenigma.com/blog/drupal-panels-you-ought-to-love-them</link_path>
+                <link_path>http://internetdevels.com/blog/ctools-content-type</link_path>
                 <parent>megamenu_fra_2_d</parent>
                 <weight>1</weight>
             </section>
@@ -750,7 +750,7 @@
             <section>
                 <source_id>megamenu_fra_2_h</source_id>
                 <menu_name>megamenu</menu_name>
-                <link_title>Panopoly Base Distribution</link_title>
+                <link_title>Spark Distribution</link_title>
                 <link_path>http://drupal.org/project/panopoly</link_path>
                 <parent>megamenu_fra_2_g</parent>
                 <weight>1</weight>
@@ -758,8 +758,8 @@
             <section>
                 <source_id>megamenu_fra_2_i</source_id>
                 <menu_name>megamenu</menu_name>
-                <link_title>WET Distribution</link_title>
-                <link_path>http://drupal.org/project/wet</link_path>
+                <link_title>Drupal WxT Distribution</link_title>
+                <link_path>http://drupal.org/project/wetkit</link_path>
                 <parent>megamenu_fra_2_g</parent>
                 <weight>2</weight>
             </section>
@@ -783,7 +783,7 @@
                 <source_id>megamenu_fra_3</source_id>
                 <menu_name>megamenu</menu_name>
                 <link_title>GitHub</link_title>
-                <link_path>front</link_path>
+                <link_path>https://github.com</link_path>
                 <weight>3</weight>
             </section>
             <section>
@@ -806,7 +806,7 @@
                 <source_id>megamenu_fra_3_c</source_id>
                 <menu_name>megamenu</menu_name>
                 <link_title>Page Wiki</link_title>
-                <link_path>https://github.com/wet-boew/wet-boew/wiki</link_path>
+                <link_path>http://wiki.drupalwxt.org</link_path>
                 <parent>megamenu_fra_3_a</parent>
                 <weight>1</weight>
             </section>
@@ -838,7 +838,7 @@
                 <source_id>megamenu_fra_3_g</source_id>
                 <menu_name>megamenu</menu_name>
                 <link_title>Page Wiki</link_title>
-                <link_path>https://github.com/wet-boew/wet-boew/wiki</link_path>
+                <link_path>http://wiki.drupalwxt.org</link_path>
                 <parent>megamenu_fra_3_e</parent>
                 <weight>1</weight>
             </section>
@@ -941,7 +941,7 @@
                 <source_id>sidebar_fra_2_d</source_id>
                 <menu_name>sidebar</menu_name>
                 <link_title>Blogues du Drupal</link_title>
-                <link_path>http://www.codeenigma.com/blog/drupal-panels-you-ought-to-love-them</link_path>
+                <link_path>http://drupal.org/planet</link_path>
                 <parent>sidebar_fra_2</parent>
                 <weight>4</weight>
             </section>
@@ -957,7 +957,7 @@
                 <source_id>sidebar_fra_2_f</source_id>
                 <menu_name>sidebar</menu_name>
                 <link_title>CTools Plugins</link_title>
-                <link_path>http://www.codeenigma.com/blog/drupal-panels-you-ought-to-love-them</link_path>
+                <link_path>http://internetdevels.com/blog/ctools-content-type</link_path>
                 <parent>sidebar_fra_2_d</parent>
                 <weight>1</weight>
             </section>
@@ -972,7 +972,7 @@
             <section>
                 <source_id>sidebar_fra_2_h</source_id>
                 <menu_name>sidebar</menu_name>
-                <link_title>Panopoly Base Distribution</link_title>
+                <link_title>Spark Distribution</link_title>
                 <link_path>http://drupal.org/project/panopoly</link_path>
                 <parent>sidebar_fra_2_g</parent>
                 <weight>1</weight>
@@ -980,8 +980,8 @@
             <section>
                 <source_id>sidebar_fra_2_i</source_id>
                 <menu_name>sidebar</menu_name>
-                <link_title>WET Distribution</link_title>
-                <link_path>http://drupal.org/project/wet</link_path>
+                <link_title>Drupal WxT Distribution</link_title>
+                <link_path>http://drupal.org/project/wetkit</link_path>
                 <parent>sidebar_fra_2_g</parent>
                 <weight>2</weight>
             </section>
@@ -1005,7 +1005,7 @@
                 <source_id>sidebar_fra_3</source_id>
                 <menu_name>sidebar</menu_name>
                 <link_title>GitHub</link_title>
-                <link_path>front</link_path>
+                <link_path>https://github.com</link_path>
                 <weight>3</weight>
             </section>
             <section>
@@ -1028,7 +1028,7 @@
                 <source_id>sidebar_fra_3_c</source_id>
                 <menu_name>sidebar</menu_name>
                 <link_title>Page Wiki</link_title>
-                <link_path>https://github.com/wet-boew/wet-boew/wiki</link_path>
+                <link_path>http://wiki.drupalwxt.org</link_path>
                 <parent>sidebar_fra_3_a</parent>
                 <weight>1</weight>
             </section>
@@ -1060,7 +1060,7 @@
                 <source_id>sidebar_fra_3_g</source_id>
                 <menu_name>sidebar</menu_name>
                 <link_title>Page Wiki</link_title>
-                <link_path>https://github.com/wet-boew/wet-boew/wiki</link_path>
+                <link_path>http://wiki.drupalwxt.org</link_path>
                 <parent>sidebar_fra_3_e</parent>
                 <weight>1</weight>
             </section>
