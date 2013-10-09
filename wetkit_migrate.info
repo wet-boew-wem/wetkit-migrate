@@ -25,7 +25,6 @@ features[field_instance][] = node-wetkit_documentation-field_featured_categories
 features[field_instance][] = node-wetkit_documentation-field_uri
 features[page_manager_handlers][] = node_view_panel_context
 features[page_manager_handlers][] = node_view_panel_context_2
-files[] = migrations/wetkit_migrate_migration.inc
 files[] = migrations/wetkit_migrate_querypath.inc
 files[] = migrations/wetkit_migrate_link.inc
 files[] = migrations/defaultcontent/migrate_defaultcontent.inc

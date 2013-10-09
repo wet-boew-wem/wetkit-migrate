@@ -34,15 +34,6 @@ function wetkit_migrate_form() {
     '#description' => t('Enter the source files directory for the Documentation content'),
   );
 
-  $form['documentation']['WetKitMigrateDocumentation_ignore_dirs'] = array(
-    '#title' => t('Documentation migration folders to ignore'),
-    '#type' => t('textfield'),
-    '#maxlength' => 255,
-    '#size' => 50,
-    '#default_value' => variable_get('WetKitMigrateDocumentation_ignore_dirs'),
-    '#description' => t('Enter a colon-separated list of directories that should not be migrated.'),
-  );
-
   $form['documentation']['WetKitMigrateDocumentation_files'] = array(
     '#title' => t('Documentation Files Root Directory'),
     '#type' => t('textfield'),
