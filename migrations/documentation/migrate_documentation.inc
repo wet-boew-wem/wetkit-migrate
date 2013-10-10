@@ -6,28 +6,26 @@
 
 
 /**
- * This Migration class will transfer content of an HTML page into Drupal
+ * Abstract Migration class for HTML Content for WET-BOEW.
  */
 abstract class WetKitDocMigration extends Migration {
 
   /**
-   * Default class constructor.
+   * ProcessImport for Migration.
+   *
+   * @param array $options
+   *   Process the import array.
    */
-  public function __construct($arguments) {
-    // Always call the parent constructor first for basic setup.
-    parent::__construct($arguments);
-
-    // With migrate_ui enabled, migration pages will indicate people involved in
-    // the particular migration, with their role and contact info. We default
-    // the list in shared class; it can be overridden for specific migrations.
-    $this->team = array(
-      new MigrateTeamMember('William Hearn', 'william.hearn@statcan.gc.ca', t('Web Developer')),
-    );
+  public function processImport(array $options = array()) {
+    parent::processImport($options);
+    // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
+    // in each node_insert invocation.
+    variable_set('menu_rebuild_needed', FALSE);
   }
 }
 
 /**
- * Migration class for the WET-BOEW docs on the Web Experience Toolkit website.
+ * Migration class for WET-BOEW
  */
 class WetKitMigrateDocumentation extends WetKitDocMigration {
 
@@ -35,21 +33,42 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
    * Implements the migration constructor.
    */
   public function __construct($arguments) {
+
     parent::__construct($arguments);
 
-    // Human-friendly description of your migration process.
-    $this->description = t('Migrate the WET-BOEW documentation from the Web Experience Toolkit');
+    $this->description = t('Import html files for WET-BOEW');
 
-    // Array of directory paths that will be scanned for files.
-    $list_dirs = array(variable_get('WetKitMigrateDocumentation_listdir'));
+    // Based on the current theme choose the correct
+    // documentation to migrate.
+    if (variable_get('wetkit_wetboew_theme', 0) == 1) {
+      $directory = 'theme-gcwu-fegc';
+    }
+    elseif (variable_get('wetkit_wetboew_theme', 0) == 2) {
+      $directory = 'theme-gcwu-intranet';
+    }
+    elseif (variable_get('wetkit_wetboew_theme', 0) == 3) {
+      $directory = 'theme-base';
+    }
+    else {
+      $directory = 'theme-wet-boew';
+    }
 
-    // The base dir is the part of the path that will be excluded when making
-    // an ID for each file.
-    $base_dir = variable_get('WetKitMigrateDocumentation_basedir');
+    $directories = array(
+      libraries_get_path('wet-boew') . '/demos/' . $directory,
+    );
+    $base_dir = libraries_get_path('wet-boew') . '/demos/' . $directory;
+    $file_mask = '/(.*en\.htm$|.*en\.html|.*fr\.htm$|.*fr\.html$)/i';
 
-    // Passed on and used to filter for certain types of files. Use a regular
-    // expression.
-    $file_mask = '/(.*\.htm$|.*\.html$)/i';
+    $options = array(
+      'nomask' => '/(\.\.?|CVS)$/',
+      'callback' => 0,
+      'recurse' => FALSE,
+      'key' => 'uri',
+      'min_depth' => 0,
+    );
+
+    $list = new MigrateListFiles($directories, $base_dir, $file_mask, $options);
+    $item = new MigrateItemFile($base_dir);
 
     $this->map = new MigrateSQLMap($this->machineName,
         array(
@@ -57,93 +76,81 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
             'type' => 'varchar',
             'length' => 255,
             'not null' => TRUE,
-          ),
+          )
         ),
         MigrateDestinationNode::getKeySchema()
-      );
-
-    // The source fields.
-    $fields = array(
-      'title' => t('Title'),
-      'body' => t('Body'),
-      'uid' => t('User id'),
-      'sourceuri' => t('Source URI'),
-      'language' => t('Language'),
-      'path' => t('URL Path Alias'),
-      'tnid' => t('Translation set node ID'),
-      'status' => t('Publication status'),
-      'promotion' => t('Promotion to front page flag'),
-      'datestamp' => t('The date and time from the Date meta tag'),
-      'wetkit_term' => t('A taxonomy field for the migration classification'),
-      'columns' => t('Whether the column should be set as either single or multiple'),
     );
 
-    // Create a file source.
-    $list_files = new MigrateListFiles($list_dirs, $base_dir, $file_mask);
-    $item_file = new MigrateItemFile($base_dir);
-    $this->source = new MigrateSourceList($list_files, $item_file, $fields);
+    $fields = array(
+      'title' => t('Title'),
+      'title_field' => t('Title Field'),
+      'body' => t('Body'),
+      'nid' => t('nid'),
+      'field_legacy_id' => t('Legacy ID'),
+    );
+    $this->source = new MigrateSourceList($list, $item, $fields);
 
-    // Set the destination.
-    $node_options = MigrateDestinationNode::options(NULL, 'wetkit_html_text');
+    $language = 'en';
+    $text_format = 'wetkit_wysiwyg_text';
+    $node_options = MigrateDestinationNode::options($language, $text_format);
     $this->destination = new MigrateDestinationNode('wetkit_documentation', $node_options);
 
-    // Map the fields from the source to the new node.
-    $this->addFieldMapping('uid', 'uid');
-    $this->addFieldMapping('title', 'title');
+    $this->addFieldMapping('title_field', 'title_field')
+      ->description(t('Title Field for Content Link'));
     $this->addFieldMapping('body', 'body');
     $this->addFieldMapping('body:format', 'format')
-      ->defaultValue('wetkit_wysiwyg_text');
-    $this->addFieldMapping('field_uri', 'sourceuri');
+        ->defaultValue('wetkit_wysiwyg_text');
+    $this->addFieldMapping('uid', 'uid')
+      ->defaultValue('1');
+    $this->addFieldMapping('title', 'title');
     $this->addFieldMapping('language', 'language');
     $this->addFieldMapping('path', 'path');
-    $this->addFieldMapping('tnid', 'tnid');
-    $this->addFieldMapping('status', 'status');
+    $this->addFieldMapping('nid', 'nid');
+    $this->addFieldMapping('status', 'status')
+      ->defaultValue('1');
     $this->addFieldMapping('promote', 'promotion');
     $this->addFieldMapping('created', 'datestamp');
     $this->addFieldMapping('changed', 'datestamp');
-    $this->addFieldMapping('comment')->defaultValue(FALSE);
+    //$this->addFieldMapping('field_legacy_id', 'field_legacy_id');
 
     // Indicate which fields are explictly ignored.
-    $this->addUnmigratedDestinations(array(
-      'sticky',
-      'revision',
-      'log',
-      'revision_uid',
-      'is_new',
-      'body:summary',
-      'body:format',
-      'body:language',
-      'field_featured_categories:source_type',
-      'field_featured_categories:create_term',
-      'field_uri:format',
-      'field_uri:language',
-    ));
-
-    $this->addFieldMapping('field_column', 'columns');
-    $this->addFieldMapping('field_featured_categories', 'wetkit_term');
+    $this->addUnmigratedDestinations(
+      array(
+        'sticky',
+        'revision',
+        'log',
+        'revision_uid',
+        'is_new',
+        'body:summary',
+        'body:format',
+        'body:language',
+      ));
   }
 
   /**
-   * Process the file prior to the actual migration.
+   * Prepare and modify the source rows.
    *
    * @param array $row
    *   Row to import for the migration.
    */
   public function prepareRow($row) {
+    // Set the Language.
+    $withoutExt = preg_replace("/\\.[^.\\s]{3,4}$/", "", $row->sourceid);
+    $lang = (substr($withoutExt, -2) == 'fr') ? 'fr' : 'en';
+    $row->language = $lang;
+  }
 
-    // Array of DOM Elements to remove calls a Querypath Removal Function.
-    $this->elements_to_remove = array(
-      'removeDOMElements' => array(
-        '0' => '#base-date-mod',
-        '1' => '#gcwu-date-mod',
-      ),
-    );
+  /**
+   * Prepare some of the rows which require extra logic before can be mapped.
+   */
+  function prepare($entity, stdClass $row) {
+    // Default Language.
+    $entity->language = 'en';
 
-    // Set to admin for now.
-    $row->uid = 1;
+    // Language of Migrated content.
+    $language = $row->language;
 
-    // Create a WetKit HTML Migration Page object. This object takes care of
-    // parsing the raw html content.
+    // Leverage the power of QueryPath.
     if (isset($this->elements_to_remove)) {
       $htmlpage = new WetKitMigrationhtmlpage($row, $this->elements_to_remove);
     }
@@ -151,73 +158,90 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
       $htmlpage = new WetKitMigrationhtmlpage($row);
     }
 
-    // Set some source fields.
-    $row->body = $htmlpage->body;
+    // If the title is empty, don't import this row.
+    if (strlen(trim($htmlpage->title)) == 0) {
+      throw new MigrateException(t("No title (title) detected for: @sourceid", array('@sourceid' => $row->sourceid)), Migration::MESSAGE_NOTICE, MigrateMap::STATUS_IGNORED);
+    }
 
     // If the body is empty, don't import this row.
-    if (strlen(trim($row->body)) == 0) {
-      return FALSE;
+    if (strlen(trim($htmlpage->body)) == 0) {
+      $htmlpage->body = $htmlpage->getHTML('.colLayout .center');
+      if (strlen(trim($htmlpage->body)) == 0) {
+        throw new MigrateException(t("No body (#wb-main-in || .colLayout .center) detected for: @sourceid", array('@sourceid' => $row->sourceid)), Migration::MESSAGE_NOTICE, MigrateMap::STATUS_IGNORED);
+      }
     }
 
-    $row->title = $htmlpage->title;
-
-    // If the title is empty, don't import this row.
-    if (strlen(trim($row->title)) == 0) {
-      return FALSE;
+    // Title Module support.
+    if (module_exists('title')) {
+      $entity->title = $htmlpage->title;
+      $entity->title_field[$language][0]['value'] = $htmlpage->title;
+      $entity->title_field[$language][0]['format'] = 'plain_text';
+      $entity->title_field[$language][0]['safe_value'] = $htmlpage->title;
     }
 
-    // Set the boolean for whether single or multiple columns.
-    $row->columns = $htmlpage->columns;
+    // Links Parser
+    $basepath = '/' . variable_get('file_public_path', conf_path() . '/files');
+    $linksParser = new LinksParser($htmlpage->body, $basepath, 'migrated');
+    $htmlpage->body = $linksParser->process();
 
-    // Set the language of the content.
-    $row->language = $htmlpage->language;
+    // Body field.
+    $entity->body[$language][0]['value'] = $htmlpage->body;
+    $entity->body[$language][0]['format'] = 'wetkit_wysiwyg_text';
+    $entity->body[$language][0]['safe_value'] = $htmlpage->body;
 
-    // Set the status of the content to published.
-    // The node status is 1 for published and 0 for unpublished.
-    $row->status = 1;
+    // Set some additional fields.
+    //$entity->field_legacy_id[$language][0]['value'] = $row->sourceid;
+    //$entity->field_legacy_id[$language][0]['format'] = 'plain_text';
+    //$entity->field_legacy_id[$language][0]['safe_value'] = $row->sourceid;
 
-    // The page promotion to front page flag.
-    // 1 for promoted, 0 for not promoted.
-    $row->promotion = 0;
+    // Map the French Content.
+    if ($language == 'fr') {
 
-    // Set the datestamp the value from the meta tag.
-    $row->datestamp = $htmlpage->datestamp;
+      // Join Handling.
+      $sourceid = preg_replace('#-fr#', '-en', $row->sourceid);
+      $result = db_query('SELECT n.destid1 FROM {migrate_map_wetkitmigratedocumentation} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $sourceid));
+      foreach ($result as $result_row) {
+        $entity->nid = $result_row->destid1;
+        break;
+      }
 
-    // Set up the path - use the file path, but strip away the .htm or .html.
-    $row->path = trim($row->sourceid, '\\/');
-    $pathstats = pathinfo($row->path);
-    $row->dirname = $pathstats['dirname'];
-    $row->path = $pathstats['dirname'] . '/' . $pathstats['filename'];
-    $row->sourceuri  = substr($row->path, 0, strlen($row->path) - 4);
+      // Set title with English title for defaults.
+      $nodes = node_load($entity->nid);
+      $entity->title = $nodes->title;
 
-    // Set up the TNID (the translated node id). To set the TNID, just ensure
-    // that every node in the translation set uses the same node ID in the TNID
-    // field. To do this, check to see if any other node has the same URI. If it
-    // exists then set the TNID of the current row to the Node ID of the
-    // matching node.
-    $row->tnid = 0;
-    $result = db_query('SELECT n.entity_id
-      FROM {field_data_field_uri} n WHERE n.field_uri_value = :source_uri', array(':source_uri' => $row->sourceuri));
-    foreach ($result as $result_row) {
-      $row->tnid = $result_row->entity_id;
-      break;
+      // Pathauto.
+      // TODO: This doesn't work in this version of WetKit
+      //module_load_include('inc', 'pathauto');
+      //$path = drupal_get_path_alias('node/' . $entity->nid, $language);
+      //pathauto_create_alias('node', 'update', 'node/' . $entity->nid, array('node' => $entity), 'page', $language);
+
+      // Entity Translation Handler.
+      $entity->translations = (object) array(
+      'original' => 'en',
+        'data' => array(
+          'en' => array(
+            'entity_type' => 'node',
+            'entity_id' => $entity->nid,
+            'language' => 'en',
+            'source' => '',
+            'uid' => '0',
+            'status' => '1',
+            'translate' => '0',
+          ),
+          'fr' => array(
+            'entity_type' => 'node',
+            'entity_id' => $entity->nid,
+            'language' => 'fr',
+            'source' => 'en',
+            'uid' => '1',
+            'status' => '1',
+            'translate' => '0',
+          ),
+        )
+      );
+
     }
 
-    // If the TNID was set, it is also necessary to update the TNID field in the
-    // matching node.
-    if ($row->tnid != 0) {
-      db_query('UPDATE {node} SET tnid = :tnid WHERE nid = :nid',
-          array(':tnid' => $row->tnid, ':nid' => $row->tnid));
-    }
-
-    // Process all of the internal links
-    if (substr($row->dirname, 0, 6) == 'demos/') {
-      $dirname = substr($row->dirname, 6);
-    }
-
-    $link_parser = new LinksParser($row->body, variable_get('WetKitMigrateDocumentation_files'), $dirname);
-
-    // Paste the new body text.
-    $row->body = $link_parser->process();
+    return $entity;
   }
 }

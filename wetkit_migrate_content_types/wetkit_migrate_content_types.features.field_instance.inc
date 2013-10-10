@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * wetkit_migrate.features.field_instance.inc
+ * wetkit_migrate_content_types.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function wetkit_migrate_field_default_field_instances() {
+function wetkit_migrate_content_types_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance: 'node-wetkit_documentation-body'
@@ -203,11 +203,61 @@ function wetkit_migrate_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-wetkit_documentation-title_field'
+  $field_instances['node-wetkit_documentation-title_field'] = array(
+    'bundle' => 'wetkit_documentation',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'title_field',
+    'label' => 'Title',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'hide_label' => array(
+        'entity' => FALSE,
+        'page' => FALSE,
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -5,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
   t('Categories');
   t('Column');
+  t('Title');
   t('URI');
 
   return $field_instances;
