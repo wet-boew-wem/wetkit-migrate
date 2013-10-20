@@ -49,6 +49,9 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
     elseif (variable_get('wetkit_wetboew_theme', 0) == 3) {
       $directory = 'theme-base';
     }
+    elseif (variable_get('wetkit_wetboew_theme', 0) == 4) {
+      $directory = 'theme-ogpl';
+    }
     else {
       $directory = 'theme-wet-boew';
     }
