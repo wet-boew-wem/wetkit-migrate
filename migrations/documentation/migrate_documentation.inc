@@ -192,31 +192,17 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
     $entity->body[$language][0]['format'] = 'wetkit_wysiwyg_text';
     $entity->body[$language][0]['safe_value'] = $htmlpage->body;
 
-    // Set some additional fields.
-    //$entity->field_legacy_id[$language][0]['value'] = $row->sourceid;
-    //$entity->field_legacy_id[$language][0]['format'] = 'plain_text';
-    //$entity->field_legacy_id[$language][0]['safe_value'] = $row->sourceid;
-
     // Map the French Content.
     if ($language == 'fr') {
 
       // Join Handling.
       $sourceid = preg_replace('#-fr#', '-en', $row->sourceid);
-      $result = db_query('SELECT n.destid1 FROM {migrate_map_wetkitmigratedocumentation} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $sourceid));
-      foreach ($result as $result_row) {
-        $entity->nid = $result_row->destid1;
-        break;
-      }
+      $entity->nid = db_query('SELECT n.destid1 FROM {migrate_map_wetkitmigratedefaultcontent} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $sourceid))->fetchfield();
+      $entity->vid = db_query('SELECT n.vid FROM {node} n WHERE n.nid = :nodeid', array(':nodeid' => $entity->nid))->fetchfield();
 
       // Set title with English title for defaults.
-      $nodes = node_load($entity->nid);
+      $nodes = node_load($entity->nid, $entity_vid);
       $entity->title = $nodes->title;
-
-      // Pathauto.
-      // TODO: This doesn't work in this version of WetKit
-      //module_load_include('inc', 'pathauto');
-      //$path = drupal_get_path_alias('node/' . $entity->nid, $language);
-      //pathauto_create_alias('node', 'update', 'node/' . $entity->nid, array('node' => $entity), 'page', $language);
 
       // Entity Translation Handler.
       $entity->translations = (object) array(
@@ -242,9 +228,7 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
           ),
         )
       );
-
     }
-
     return $entity;
   }
 }

@@ -163,14 +163,11 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
 
       // Join Handling.
       $sourceid = preg_replace('#_fra_#', '_eng_', $row->sourceid);
-      $result = db_query('SELECT n.destid1 FROM {migrate_map_wetkitmigratedefaultcontent} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $sourceid));
-      foreach ($result as $result_row) {
-        $entity->nid = $result_row->destid1;
-        break;
-      }
+      $entity->nid = db_query('SELECT n.destid1 FROM {migrate_map_wetkitmigratedefaultcontent} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $sourceid))->fetchfield();
+      $entity->vid = db_query('SELECT n.vid FROM {node} n WHERE n.nid = :nodeid', array(':nodeid' => $entity->nid))->fetchfield();
 
       // Set title with English title for defaults.
-      $nodes = node_load($entity->nid);
+      $nodes = node_load($entity->nid, $entity_vid);
       $entity->title = $nodes->title;
 
       // Pathauto.
@@ -213,7 +210,6 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
   *   The prepared row that will be modified.
   */
   public function complete($entity, stdClass $row) {
-
+    // TODO: Do we need any further processing?
   }
-
 }
