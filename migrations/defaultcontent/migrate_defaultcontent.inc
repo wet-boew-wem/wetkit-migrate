@@ -167,7 +167,7 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
       $entity->vid = db_query('SELECT n.vid FROM {node} n WHERE n.nid = :nodeid', array(':nodeid' => $entity->nid))->fetchfield();
 
       // Set title with English title for defaults.
-      $nodes = node_load($entity->nid, $entity_vid);
+      $nodes = node_load($entity->nid, $entity->vid);
       $entity->title = $nodes->title;
 
       // Pathauto.
