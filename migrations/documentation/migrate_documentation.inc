@@ -197,11 +197,11 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
 
       // Join Handling.
       $sourceid = preg_replace('#-fr#', '-en', $row->sourceid);
-      $entity->nid = db_query('SELECT n.destid1 FROM {migrate_map_wetkitmigratedefaultcontent} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $sourceid))->fetchfield();
+      $entity->nid = db_query('SELECT n.destid1 FROM {migrate_map_wetkitmigratedocumentation} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $sourceid))->fetchfield();
       $entity->vid = db_query('SELECT n.vid FROM {node} n WHERE n.nid = :nodeid', array(':nodeid' => $entity->nid))->fetchfield();
 
       // Set title with English title for defaults.
-      $nodes = node_load($entity->nid, $entity_vid);
+      $nodes = node_load($entity->nid, $entity->vid);
       $entity->title = $nodes->title;
 
       // Entity Translation Handler.
