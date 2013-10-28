@@ -79,7 +79,7 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
             'type' => 'varchar',
             'length' => 255,
             'not null' => TRUE,
-          )
+          ),
         ),
         MigrateDestinationNode::getKeySchema()
     );
@@ -114,7 +114,6 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
     $this->addFieldMapping('promote', 'promotion');
     $this->addFieldMapping('created', 'datestamp');
     $this->addFieldMapping('changed', 'datestamp');
-    //$this->addFieldMapping('field_legacy_id', 'field_legacy_id');
 
     // Indicate which fields are explictly ignored.
     $this->addUnmigratedDestinations(
@@ -146,7 +145,7 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
   /**
    * Prepare some of the rows which require extra logic before can be mapped.
    */
-  function prepare($entity, stdClass $row) {
+  public function prepare($entity, stdClass $row) {
     // Default Language.
     $entity->language = 'en';
 
@@ -182,7 +181,7 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
       $entity->title_field[$language][0]['safe_value'] = $htmlpage->title;
     }
 
-    // Links Parser
+    // Links Parser.
     $basepath = '/' . variable_get('file_public_path', conf_path() . '/files');
     $linksParser = new LinksParser($htmlpage->body, $basepath, 'migrated');
     $htmlpage->body = $linksParser->process();
@@ -206,7 +205,7 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
 
       // Entity Translation Handler.
       $entity->translations = (object) array(
-      'original' => 'en',
+        'original' => 'en',
         'data' => array(
           'en' => array(
             'entity_type' => 'node',
@@ -226,7 +225,7 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
             'status' => '1',
             'translate' => '0',
           ),
-        )
+        ),
       );
     }
     return $entity;

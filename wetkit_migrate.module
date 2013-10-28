@@ -15,7 +15,7 @@ function wetkit_migrate_migrate_api() {
 
     // Migrations can be organized into groups. The key used here will be the
     // machine name of the group, which can be used in Drush:
-    //  drush migrate-import --group=WetKitMigrate
+    // drush migrate-import --group=WetKitMigrate
     //
     // The title is a required argument which is displayed for the group in the
     // UI. You may also have additional arguments for any other data which is
@@ -37,7 +37,7 @@ function wetkit_migrate_migrate_api() {
 
     // Here we register the individual migrations. The keys below
     // are the machine names of the migrations, and the class_name
-    // argument is required. The group_name is optional (defaulting to 'default')
+    // argument is required. The group_name is optional (defaults to 'default')
     // but specifying it is a best practice.
     'migrations' => array(
       'WetKitMigrateDefaultContent' => array(

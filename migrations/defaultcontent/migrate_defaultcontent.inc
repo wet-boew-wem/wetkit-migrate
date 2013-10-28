@@ -78,7 +78,7 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
     $this->addFieldMapping('body', 'body')
       ->xpath('body');
     $this->addFieldMapping('body:format', 'format')
-    	->defaultValue('wetkit_wysiwyg_text');
+      ->defaultValue('wetkit_wysiwyg_text');
     $this->addFieldMapping('uid')
         ->defaultValue(1);
     $this->addFieldMapping('status')
@@ -97,7 +97,7 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
 
     // PathAuto mapping: generate automatic alias.
     if (module_exists('pathauto')) {
-      $this->addFieldMapping('pathauto','pathauto')
+      $this->addFieldMapping('pathauto', 'pathauto')
         ->defaultValue(1);
     }
 
@@ -123,13 +123,12 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
     // Set the Language.
     $lang = (preg_match("/eng/i", $row->sourceid)) ? 'en' : 'fr';
     $row->language = $lang;
-    $xmlobject = $row->xml;
   }
 
   /**
    * Prepare some of the rows which require extra logic before can be mapped.
    */
-  function prepare($entity, stdClass $row) {
+  public function prepare($entity, stdClass $row) {
     // Default Language.
     $entity->language = 'en';
 
@@ -172,12 +171,11 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
 
       // Pathauto.
       module_load_include('inc', 'pathauto');
-      $path = drupal_get_path_alias('node/' . $entity->nid, $language);
       pathauto_create_alias('node', 'update', 'node/' . $entity->nid, array('node' => $entity), 'wetkit_page', $language);
 
       // Entity Translation Handler.
       $entity->translations = (object) array(
-      'original' => 'en',
+        'original' => 'en',
         'data' => array(
           'en' => array(
             'entity_type' => 'node',
@@ -197,18 +195,18 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
             'status' => '1',
             'translate' => '0',
           ),
-        )
+        ),
       );
     }
     return $entity;
   }
 
- /**
-  * By default populate the data source row with fields parsed from the HTML.
-  *
-  * @param array $row
-  *   The prepared row that will be modified.
-  */
+  /**
+   * By default populate the data source row with fields parsed from the HTML.
+   *
+   * @param array $row
+   *   The prepared row that will be modified.
+   */
   public function complete($entity, stdClass $row) {
     // TODO: Do we need any further processing?
   }

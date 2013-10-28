@@ -153,10 +153,10 @@ class WetKitMigrateSiteMenuLinks extends XMLMigration {
       else {
         $path = drupal_lookup_path('source', $link_path, $lang);
         if (!empty($path)) {
-	        $row->link_path = $path;
+          $row->link_path = $path;
         }
         else {
-	        $row->link_path = $link_path;
+          $row->link_path = $link_path;
         }
       }
     }
