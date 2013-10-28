@@ -17,6 +17,6 @@ Key Features
 
 [drupalwxt]:            http://drupal.org/project/wetkit
 [panels]:               http://drupal.org/project/panels
-[migrate]:               http://drupal.org/project/migrate
+[migrate]:              http://drupal.org/project/migrate
 [querypath]:            https://github.com/technosophos/querypath
 [wxt]:                  https://github.com/wet-boew/wet-boew
