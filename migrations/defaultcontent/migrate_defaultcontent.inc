@@ -24,6 +24,153 @@ abstract class WetKitDCMigration extends XMLMigration {
 }
 
 /**
+ * Migration class for media images.
+ */
+class WetKitMigrateDefaultContentMedia extends WetKitDCMigration {
+
+  /**
+   * Implements the migration constructor.
+   */
+  public function __construct($arguments) {
+    parent::__construct($arguments);
+
+    $this->description = t('Migrate Media (File Entities) into the Web Experience Toolkit');
+
+    $this->map = new MigrateSQLMap($this->machineName,
+      array(
+        'filename' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'description' => 'Image filename',
+        )
+      ),
+      MigrateDestinationMedia::getKeySchema()
+    );
+
+    // Source fields available in the XML file.
+    $fields = array(
+      'source_id' => t('Source id'),
+      'title' => t('Title'),
+      'body' => t('Description'),
+      'image' => t('Image filename, relative to the source directory'),
+      'image_alt' => t('Alt text for the image'),
+      'image_alt_language' => t('Alt text for the image'),
+    );
+
+    $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'wetkit_migrate') . '/migrations/defaultcontent';
+    $items_url = $xml_folder . '/migrate_defaultcontent.xml';
+    $item_xpath = '/default_content/*/content';
+    $item_id_xpath = 'source_id';
+
+    $items_class = new MigrateItemsXML($items_url, $item_xpath, $item_id_xpath);
+    $this->source = new MigrateSourceMultiItems($items_class, $fields);
+
+    // Media Destination Migration.
+    $this->destination = new MigrateDestinationMedia('image');
+
+    // The source images are in a local directory - specify the parent.
+    $this->addFieldMapping('source_dir')
+      ->defaultValue(drupal_get_path('module', 'wetkit_migrate') . '/migrations/defaultcontent/images');
+    // The 'value' of the media destination is mapped to the source field
+    // representing the media itself - in this case, a filename relative to
+    // source_dir.
+    $this->addFieldMapping('value', 'image')
+         ->xpath('image');
+    // Fields on the entity can be mapped in the usual way.
+    $this->addFieldMapping('field_file_image_alt_text', 'image_alt')
+         ->xpath('image_alt');
+    $this->addFieldMapping('file_replace')
+         ->defaultValue(FILE_EXISTS_REPLACE);
+    $this->addFieldMapping('uid')
+         ->defaultValue(1);
+
+    // Unmapped destination fields.
+    $this->addUnmigratedDestinations(array(
+      'destination_dir',
+      'destination_file',
+      'preserve_files',
+      'timestamp',
+    ));
+
+    // Remove path if set.
+    if (module_exists('path')) {
+      $this->addUnmigratedDestinations(array('path'));
+    }
+  }
+
+  /**
+   * Prepare and modify the source rows.
+   *
+   * @param array $row
+   *   Row to import for the migration.
+   */
+  public function prepareRow($row) {
+    // Prepare alt text for image.
+    $xmlobj = $row->xml;
+    $source_id = strip_tags($xmlobj->source_id->asXML());
+
+    $row->source_id = $source_id;
+    $row->language = (preg_match("/eng/i", $source_id)) ? 'en' : 'fr';
+  }
+
+  /**
+   * Prepare some of the rows which require extra logic before can be mapped.
+   */
+  public function prepare($entity, stdClass $row) {
+    // Default Language.
+    $entity->language = 'en';
+
+    // Language of Migrated content.
+    $language = $row->language;
+
+    // Entity Translation name_field support.
+    $entity->filename_field[$language][0]['value'] = $row->image;
+    $entity->filename_field[$language][0]['format'] = 'plain_text';
+    $entity->filename_field[$language][0]['safe_value'] = $row->image;
+
+    // Entity Translation alt tag support.
+    $entity->field_file_image_alt_text[$language][0]['value'] = $row->image_alt;
+    $entity->field_file_image_alt_text[$language][0]['format'] = 'plain_text';
+    $entity->field_file_image_alt_text[$language][0]['safe_value'] = $row->image_alt;
+
+    // Map the French Content.
+    if ($language == 'fr') {
+
+      // Join Handling.
+      $source_id = preg_replace('#_fra_#', '_eng_', $row->source_id);
+      $entity->fid = db_query('SELECT n.destid1 FROM {migrate_map_wetkitmigratedefaultcontentmedia} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $source_id))->fetchfield();
+
+      // Entity Translation Handler.
+      $entity->translations = (object) array(
+        'original' => 'en',
+        'data' => array(
+          'en' => array(
+            'entity_type' => 'file',
+            'entity_id' => $entity->fid,
+            'language' => 'en',
+            'source' => '',
+            'uid' => '0',
+            'status' => '1',
+            'translate' => '0',
+          ),
+          'fr' => array(
+            'entity_type' => 'file',
+            'entity_id' => $entity->fid,
+            'language' => 'fr',
+            'source' => 'en',
+            'uid' => '1',
+            'status' => '1',
+            'translate' => '0',
+          ),
+        ),
+      );
+    }
+    return $entity;
+  }
+}
+
+/**
  * Migration class for the Default Content for the Web Experience Toolkit
  */
 class WetKitMigrateDefaultContent extends WetKitDCMigration {
@@ -34,7 +181,8 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
   public function __construct($arguments) {
     parent::__construct($arguments);
 
-    $this->description = t('Migrate the WET-BOEW default content into the Web Experience Toolkit');
+    $this->description = t('Migrate content (Node Entities) into the Web Experience Toolkit');
+    $this->dependencies = array('WetKitMigrateDefaultContentMedia');
 
     // Create a map object for tracking the relationships between source rows.
     $this->map = new MigrateSQLMap($this->machineName,
@@ -53,6 +201,8 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
       'id' => t('Source id'),
       'title' => t('Title'),
       'body' => t('Description'),
+      'image' => t('Image filename, relative to the source directory'),
+      'image_alt' => t('Alt text for the image'),
     );
 
     $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'wetkit_migrate') . '/migrations/defaultcontent';
@@ -63,7 +213,7 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
     $items_class = new MigrateItemsXML($items_url, $item_xpath, $item_id_xpath);
     $this->source = new MigrateSourceMultiItems($items_class, $fields);
 
-    // Defaults for Node Destination Migration.
+    // Node Destination Migration.
     $language = 'en';
     $text_format = 'wetkit_wysiwyg_text';
     $node_options = MigrateDestinationNode::options($language, $text_format);
@@ -86,14 +236,11 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
     $this->addFieldMapping('language', 'language');
 
     // Extra Fields.
-    $this->addFieldMapping('field_featured_image', 'images')
-        ->xpath('image');
-    $this->addFieldMapping('field_featured_image:alt', 'image_alt')
-        ->xpath('image_alt');
-    $this->addFieldMapping('field_featured_image:file_replace')
-      ->defaultValue(FILE_EXISTS_REPLACE);
-    $this->addFieldMapping('field_featured_image:source_dir')
-      ->defaultValue(drupal_get_path('module', 'wetkit_migrate') . '/migrations/defaultcontent/images');
+    $this->addFieldMapping('field_featured_image', 'id')
+         ->xpath('source_id')
+         ->sourceMigration('WetKitMigrateDefaultContentMedia');
+    $this->addFieldMapping('field_featured_image:file_class')
+         ->defaultValue('MigrateFileFid');
 
     // PathAuto mapping: generate automatic alias.
     if (module_exists('pathauto')) {

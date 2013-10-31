@@ -15,6 +15,7 @@ function wetkit_migrate_install() {
 
   // Migration Instantiation.
   MigrationBase::registerMigration('WetKitMigrateDefaultContent');
+  MigrationBase::registerMigration('WetKitMigrateDefaultContentMedia');
   MigrationBase::registerMigration('WetKitMigrateDocumentation');
   MigrationBase::registerMigration('WetKitMigrateDocumentationMenu');
   MigrationBase::registerMigration('WetKitMigrateDocumentationMenuLinks');
@@ -40,6 +41,7 @@ function wetkit_migrate_uninstall() {
 
   // Migration deRegistration.
   MigrationBase::deregisterMigration('WetKitMigrateDefaultContent');
+  MigrationBase::deregisterMigration('WetKitMigrateDefaultContentMedia');
   MigrationBase::deregisterMigration('WetKitMigrateDocumentation');
   MigrationBase::deregisterMigration('WetKitMigrateDocumentationMenu');
   MigrationBase::deregisterMigration('WetKitMigrateDocumentationMenuLinks');

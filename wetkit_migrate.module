@@ -44,6 +44,10 @@ function wetkit_migrate_migrate_api() {
         'class_name' => 'WetKitMigrateDefaultContent',
         'group_name' => 'DefaultContentMigrate',
       ),
+      'WetKitMigrateDefaultContentMedia' => array(
+        'class_name' => 'WetKitMigrateDefaultContentMedia',
+        'group_name' => 'DefaultContentMigrate',
+      ),
       'WetKitMigrateDocumentation' => array(
         'class_name' => 'WetKitMigrateDocumentation',
         'group_name' => 'DocumentationMigrate',
