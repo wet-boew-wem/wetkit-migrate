@@ -101,8 +101,6 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
     $this->addFieldMapping('title_field', 'title_field')
       ->description(t('Title Field for Content Link'));
     $this->addFieldMapping('body', 'body');
-    $this->addFieldMapping('body:format', 'format')
-        ->defaultValue('wetkit_wysiwyg_text');
     $this->addFieldMapping('uid', 'uid')
       ->defaultValue('1');
     $this->addFieldMapping('title', 'title');
