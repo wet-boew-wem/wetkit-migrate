@@ -60,8 +60,8 @@ class WetKitMigrateDefaultContentMedia extends WetKitDCMigration {
 
     $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'wetkit_migrate') . '/migrations/defaultcontent';
     $items_url = $xml_folder . '/migrate_defaultcontent.xml';
-    $item_xpath = '/default_content/*/content';
-    $item_id_xpath = 'source_id';
+    $item_xpath = '/default_content/*/content/image/*';
+    $item_id_xpath = 'key';
 
     $items_class = new MigrateItemsXML($items_url, $item_xpath, $item_id_xpath);
     $this->source = new MigrateSourceMultiItems($items_class, $fields);
@@ -76,10 +76,10 @@ class WetKitMigrateDefaultContentMedia extends WetKitDCMigration {
     // representing the media itself - in this case, a filename relative to
     // source_dir.
     $this->addFieldMapping('value', 'image')
-         ->xpath('image');
+         ->xpath('filename');
     // Fields on the entity can be mapped in the usual way.
     $this->addFieldMapping('field_file_image_alt_text', 'image_alt')
-         ->xpath('image_alt');
+         ->xpath('alt');
     $this->addFieldMapping('file_replace')
          ->defaultValue(FILE_EXISTS_REPLACE);
     $this->addFieldMapping('uid')
@@ -108,10 +108,10 @@ class WetKitMigrateDefaultContentMedia extends WetKitDCMigration {
   public function prepareRow($row) {
     // Prepare alt text for image.
     $xmlobj = $row->xml;
-    $source_id = strip_tags($xmlobj->source_id->asXML());
+    $key = strip_tags($xmlobj->key->asXML());
 
-    $row->source_id = $source_id;
-    $row->language = (preg_match("/eng/i", $source_id)) ? 'en' : 'fr';
+    $row->key = $key;
+    $row->language = (preg_match("/eng/i", $key)) ? 'en' : 'fr';
   }
 
   /**
@@ -138,8 +138,8 @@ class WetKitMigrateDefaultContentMedia extends WetKitDCMigration {
     if ($language == 'fr') {
 
       // Join Handling.
-      $source_id = preg_replace('#_fra_#', '_eng_', $row->source_id);
-      $entity->fid = db_query('SELECT n.destid1 FROM {migrate_map_wetkitmigratedefaultcontentmedia} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $source_id))->fetchfield();
+      $source_id = preg_replace('#_fra_#', '_eng_', $row->key);
+      $entity->fid = db_query('SELECT n.destid1 FROM {migrate_map_wetkitmigratedefaultcontentmedia} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $key))->fetchfield();
 
       // Entity Translation Handler.
       $entity->translations = (object) array(
@@ -237,7 +237,7 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
 
     // Extra Fields.
     $this->addFieldMapping('field_featured_image', 'id')
-         ->xpath('source_id')
+         ->xpath('image/media_field/key')
          ->sourceMigration('WetKitMigrateDefaultContentMedia');
     $this->addFieldMapping('field_featured_image:file_class')
          ->defaultValue('MigrateFileFid');
@@ -293,6 +293,9 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
     $entity->body[$language][0]['value'] = $row->body;
     $entity->body[$language][0]['format'] = 'wetkit_wysiwyg_text';
     $entity->body[$language][0]['safe_value'] = $row->body;
+
+    // Convert img tags to media json format.
+    MigrateDestinationMedia::rewriteImgTags($entity);
 
     // If the title is empty, don't import this row.
     if (strlen(trim($entity->title_field[$language][0]['value'])) == 0) {
