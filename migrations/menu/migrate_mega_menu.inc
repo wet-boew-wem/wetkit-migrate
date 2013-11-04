@@ -43,7 +43,7 @@ class WetKitMigrateMegaMenu extends XMLMigration {
     $this->source = new MigrateSourceMultiItems($items_class, $fields);
     $this->destination = new MigrateDestinationMenu();
 
-    $this->addFieldMapping('i18n_mode', 'i18n_mode')
+    $this->addFieldMapping('i18n_mode')
         ->defaultValue(5);
     $this->addFieldMapping('menu_name', 'menu_name')
         ->xpath('menu_name');
