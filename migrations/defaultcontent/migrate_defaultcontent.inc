@@ -242,6 +242,10 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
     $this->addFieldMapping('field_featured_image:file_class')
          ->defaultValue('MigrateFileFid');
 
+    // WorkBench Moderation
+    $this->addFieldMapping('workbench_moderation_state_new', 'workbench_moderation_state_new')
+         ->defaultValue('published');
+
     // PathAuto mapping: generate automatic alias.
     if (module_exists('pathauto')) {
       $this->addFieldMapping('pathauto', 'pathauto')
