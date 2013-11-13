@@ -316,31 +316,31 @@
                 <source_id>megamenu_eng_4_a</source_id>
                 <menu_name>megamenu</menu_name>
                 <link_title>Sample Content Pages</link_title>
-                <link_path>content/wetkit-demo</link_path>
+                <link_path>content/drupal-wxt</link_path>
                 <parent>megamenu_eng_4</parent>
                 <weight>1</weight>
             </section>
             <section>
                 <source_id>megamenu_eng_4_b</source_id>
                 <menu_name>megamenu</menu_name>
-                <link_title>WetKit Collaboration</link_title>
-                <link_path>content/wetkit-collaboration</link_path>
+                <link_title>Drupal Platform</link_title>
+                <link_path>content/drupal-platform</link_path>
                 <parent>megamenu_eng_4_a</parent>
                 <weight>1</weight>
             </section>
             <section>
                 <source_id>megamenu_eng_4_c</source_id>
                 <menu_name>megamenu</menu_name>
-                <link_title>WetKit Demo</link_title>
-                <link_path>content/wetkit-demo</link_path>
+                <link_title>Drupal WxT</link_title>
+                <link_path>content/drupal-wxt</link_path>
                 <parent>megamenu_eng_4_a</parent>
                 <weight>2</weight>
             </section>
             <section>
                 <source_id>megamenu_eng_4_d</source_id>
                 <menu_name>megamenu</menu_name>
-                <link_title>WetKit Features</link_title>
-                <link_path>content/wetkit-features</link_path>
+                <link_title>Drupal Collaboration</link_title>
+                <link_path>content/drupal-collaboration</link_path>
                 <parent>megamenu_eng_4_a</parent>
                 <weight>3</weight>
             </section>
@@ -538,31 +538,31 @@
                 <source_id>sidebar_eng_4_a</source_id>
                 <menu_name>sidebar</menu_name>
                 <link_title>Sample Content Pages</link_title>
-                <link_path>content/wetkit-demo</link_path>
+                <link_path>content/drupal-wxt</link_path>
                 <parent>sidebar_eng_4</parent>
                 <weight>1</weight>
             </section>
             <section>
                 <source_id>sidebar_eng_4_b</source_id>
                 <menu_name>sidebar</menu_name>
-                <link_title>WetKit Collaboration</link_title>
-                <link_path>content/wetkit-collaboration</link_path>
+                <link_title>Drupal Platform</link_title>
+                <link_path>content/drupal-platform</link_path>
                 <parent>sidebar_eng_4_a</parent>
                 <weight>1</weight>
             </section>
             <section>
                 <source_id>sidebar_eng_4_c</source_id>
                 <menu_name>sidebar</menu_name>
-                <link_title>WetKit Demo</link_title>
-                <link_path>content/wetkit-demo</link_path>
+                <link_title>Drupal WxT</link_title>
+                <link_path>content/drupal-wxt</link_path>
                 <parent>sidebar_eng_4_a</parent>
                 <weight>2</weight>
             </section>
             <section>
                 <source_id>sidebar_eng_4_d</source_id>
                 <menu_name>sidebar</menu_name>
-                <link_title>WetKit Features</link_title>
-                <link_path>content/wetkit-features</link_path>
+                <link_title>Drupal Collaboration</link_title>
+                <link_path>content/drupal-collaboration</link_path>
                 <parent>sidebar_eng_4_a</parent>
                 <weight>3</weight>
             </section>
@@ -861,31 +861,31 @@
                 <source_id>megamenu_fra_4_a</source_id>
                 <menu_name>megamenu</menu_name>
                 <link_title>Pages du contenu exemples</link_title>
-                <link_path>contenu/wetkit-demo</link_path>
+                <link_path>contenu/wxt-drupal</link_path>
                 <parent>megamenu_fra_4</parent>
                 <weight>1</weight>
             </section>
             <section>
                 <source_id>megamenu_fra_4_b</source_id>
                 <menu_name>megamenu</menu_name>
-                <link_title>Collaboration WetKit</link_title>
-                <link_path>contenu/wetkit-collaboration</link_path>
+                <link_title>Application Drupal</link_title>
+                <link_path>contenu/application-drupal</link_path>
                 <parent>megamenu_fra_4_a</parent>
                 <weight>1</weight>
             </section>
             <section>
                 <source_id>megamenu_fra_4_c</source_id>
                 <menu_name>megamenu</menu_name>
-                <link_title>Démo WetKit</link_title>
-                <link_path>contenu/wetkit-demo</link_path>
+                <link_title>WxT Drupal</link_title>
+                <link_path>contenu/wxt-drupal</link_path>
                 <parent>megamenu_fra_4_a</parent>
                 <weight>2</weight>
             </section>
             <section>
                 <source_id>megamenu_fra_4_d</source_id>
                 <menu_name>megamenu</menu_name>
-                <link_title>Features WetKit</link_title>
-                <link_path>contenu/wetkit-features</link_path>
+                <link_title>Coopération Drupal</link_title>
+                <link_path>contenu/cooperation-drupal</link_path>
                 <parent>megamenu_fra_4_a</parent>
                 <weight>3</weight>
             </section>
@@ -1083,31 +1083,31 @@
                 <source_id>sidebar_fra_4_a</source_id>
                 <menu_name>sidebar</menu_name>
                 <link_title>Pages du contenu exemples</link_title>
-                <link_path>contenu/wetkit-demo</link_path>
+                <link_path>contenu/wxt-drupal</link_path>
                 <parent>sidebar_fra_4</parent>
                 <weight>1</weight>
             </section>
             <section>
                 <source_id>sidebar_fra_4_b</source_id>
                 <menu_name>sidebar</menu_name>
-                <link_title>Collaboration WetKit</link_title>
-                <link_path>contenu/wetkit-collaboration</link_path>
+                <link_title>Application Drupal</link_title>
+                <link_path>contenu/application-drupal</link_path>
                 <parent>sidebar_fra_4_a</parent>
                 <weight>1</weight>
             </section>
             <section>
                 <source_id>sidebar_fra_4_c</source_id>
                 <menu_name>sidebar</menu_name>
-                <link_title>Démo WetKit</link_title>
-                <link_path>contenu/wetkit-demo</link_path>
+                <link_title>WxT Drupal</link_title>
+                <link_path>contenu/wxt-drupal</link_path>
                 <parent>sidebar_fra_4_a</parent>
                 <weight>2</weight>
             </section>
             <section>
                 <source_id>sidebar_fra_4_d</source_id>
                 <menu_name>sidebar</menu_name>
-                <link_title>Features WetKit</link_title>
-                <link_path>contenu/wetkit-features</link_path>
+                <link_title>Coopération Drupal</link_title>
+                <link_path>contenu/cooperation-drupal</link_path>
                 <parent>sidebar_fra_4_a</parent>
                 <weight>3</weight>
             </section>
