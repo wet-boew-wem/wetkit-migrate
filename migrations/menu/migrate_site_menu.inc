@@ -171,7 +171,7 @@ class WetKitMigrateSiteMenuLinks extends XMLMigration {
     if (isset($xmlobj->attribute_title)) {
       $options += array(
         'attributes' => array(
-          'title' => $xmlobj->attribute_title->asXML(),
+          'title' => strip_tags($xmlobj->attribute_title->asXML()),
         ),
       );
     }
