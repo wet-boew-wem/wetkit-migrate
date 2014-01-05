@@ -55,7 +55,6 @@ class WetKitMigrateDefaultContentMedia extends WetKitDCMigration {
       'body' => t('Description'),
       'image' => t('Image filename, relative to the source directory'),
       'image_alt' => t('Alt text for the image'),
-      'image_alt_language' => t('Alt text for the image'),
     );
 
     $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'wetkit_migrate') . '/migrations/defaultcontent';
@@ -80,6 +79,7 @@ class WetKitMigrateDefaultContentMedia extends WetKitDCMigration {
     // Fields on the entity can be mapped in the usual way.
     $this->addFieldMapping('field_file_image_alt_text', 'image_alt')
          ->xpath('alt');
+    $this->addFieldMapping('field_file_image_alt_text:language', 'language_alt');
     $this->addFieldMapping('file_replace')
          ->defaultValue(FILE_EXISTS_REPLACE);
     $this->addFieldMapping('uid')
@@ -112,6 +112,7 @@ class WetKitMigrateDefaultContentMedia extends WetKitDCMigration {
 
     $row->key = $key;
     $row->language = (preg_match("/eng/i", $key)) ? 'en' : 'fr';
+    $row->language_alt = $row->language;
   }
 
   /**
