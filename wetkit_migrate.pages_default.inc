@@ -17,9 +17,9 @@ function wetkit_migrate_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -97;
+  $handler->weight = 99;
   $handler->conf = array(
-    'title' => 'WetKit Migrate Multiple Column',
+    'title' => 'Migrate (Sidebar)',
     'no_blocks' => 0,
     'pipeline' => 'ipe',
     'body_classes_to_remove' => '',
@@ -162,9 +162,9 @@ function wetkit_migrate_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -98;
+  $handler->weight = 98;
   $handler->conf = array(
-    'title' => 'WetKit Migrate Single Column',
+    'title' => 'Migrate',
     'no_blocks' => 0,
     'pipeline' => 'ipe',
     'body_classes_to_remove' => '',
