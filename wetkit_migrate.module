@@ -40,6 +40,10 @@ function wetkit_migrate_migrate_api() {
     // argument is required. The group_name is optional (defaults to 'default')
     // but specifying it is a best practice.
     'migrations' => array(
+      'WetKitMigrateBean' => array(
+        'class_name' => 'WetKitMigrateBean',
+        'group_name' => 'DefaultContentMigrate',
+      ),
       'WetKitMigrateDefaultContent' => array(
         'class_name' => 'WetKitMigrateDefaultContent',
         'group_name' => 'DefaultContentMigrate',

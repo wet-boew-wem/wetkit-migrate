@@ -14,6 +14,7 @@ function wetkit_migrate_install() {
   variable_set('WetKitMigrateDocumentation_files', libraries_get_path('wet-boew', TRUE) . '/demos');
 
   // Migration Instantiation.
+  MigrationBase::registerMigration('WetKitMigrateBean');
   MigrationBase::registerMigration('WetKitMigrateDefaultContent');
   MigrationBase::registerMigration('WetKitMigrateDefaultContentMedia');
   MigrationBase::registerMigration('WetKitMigrateDocumentation');
@@ -40,6 +41,7 @@ function wetkit_migrate_uninstall() {
   variable_delete('WetKitMigrateDocumentationMenu_file');
 
   // Migration deRegistration.
+  MigrationBase::deregisterMigration('WetKitMigrateBean');
   MigrationBase::deregisterMigration('WetKitMigrateDefaultContent');
   MigrationBase::deregisterMigration('WetKitMigrateDefaultContentMedia');
   MigrationBase::deregisterMigration('WetKitMigrateDocumentation');
