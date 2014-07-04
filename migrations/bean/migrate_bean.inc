@@ -72,8 +72,6 @@ class WetKitMigrateBean extends WetKitBeanMigration {
 
     $this->addFieldMapping('field_bean_taxonomy', 'termname')
          ->xpath('taxonomy');
-    $this->addFieldMapping('field_bean_taxonomy:create_term')
-         ->defaultValue(TRUE);
     $this->addFieldMapping('field_bean_taxonomy:ignore_case')
          ->defaultValue(TRUE);
   }

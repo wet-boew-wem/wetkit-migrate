@@ -29,3 +29,4 @@ files[] = migrations/documentation/migrate_documentation.inc
 files[] = migrations/documentation/migrate_documentation_menu.inc
 files[] = migrations/menu/migrate_mega_menu.inc
 files[] = migrations/menu/migrate_site_menu.inc
+files[] = migrations/taxonomy/migrate_taxonomy.inc

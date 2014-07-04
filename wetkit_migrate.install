@@ -24,6 +24,7 @@ function wetkit_migrate_install() {
   MigrationBase::registerMigration('WetKitMigrateMegaMenuLinks');
   MigrationBase::registerMigration('WetKitMigrateSiteMenu');
   MigrationBase::registerMigration('WetKitMigrateSiteMenuLinks');
+  MigrationBase::registerMigration('WetKitMigrateTaxonomy');
 
   if (function_exists('migrate_static_registration')) {
     migrate_static_registration();
@@ -51,6 +52,7 @@ function wetkit_migrate_uninstall() {
   MigrationBase::deregisterMigration('WetKitMigrateMegaMenuLinks');
   MigrationBase::deregisterMigration('WetKitMigrateSiteMenu');
   MigrationBase::deregisterMigration('WetKitMigrateSiteMenuLinks');
+  MigrationBase::deregisterMigration('WetKitMigrateTaxonomy');
 
   // Get global variable array.
   global $conf;

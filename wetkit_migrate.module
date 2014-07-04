@@ -80,6 +80,10 @@ function wetkit_migrate_migrate_api() {
         'class_name' => 'WetKitMigrateSiteMenuLinks',
         'group_name' => 'SiteMenuMigrate',
       ),
+      'WetKitMigrateTaxonomy' => array(
+        'class_name' => 'WetKitMigrateTaxonomy',
+        'group_name' => 'DefaultContentMigrate',
+      ),
     ),
   );
   return $api;
