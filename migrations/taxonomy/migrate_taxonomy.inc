@@ -46,7 +46,7 @@ class WetKitMigrateTaxonomy extends Migration {
   /**
    * Process the file prior to the actual migration.
    */
-  public function prepareRow(stdClass $row) {
+  public function prepareRow($row) {
     // Set the Language.
     $lang = 'en';
     $row->language = $lang;
