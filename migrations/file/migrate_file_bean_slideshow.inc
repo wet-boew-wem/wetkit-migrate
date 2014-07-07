@@ -122,7 +122,7 @@ class WetKitMigrateFileBeanSlideShow extends XMLMigration {
 
       // Join Handling.
       $source_id = preg_replace('#_fra_#', '_eng_', $row->key);
-      $entity->fid = db_query('SELECT n.destid1 FROM {migrate_map_wetkitmigratefilebeanslideout} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $source_id))->fetchfield();
+      $entity->fid = db_query('SELECT n.destid1 FROM {migrate_map_wetkitmigratefilebeanslideshow} n WHERE n.sourceid1 = :sourceid', array(':sourceid' => $source_id))->fetchfield();
 
       // Entity Translation Handler.
       $entity->translations = (object) array(
