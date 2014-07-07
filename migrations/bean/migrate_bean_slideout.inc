@@ -3,7 +3,7 @@
 /**
  * Class WetKitMigrateBean
  */
-class WetKitMigrateBean extends XMLMigration {
+class WetKitMigrateBeanSlideOut extends XMLMigration {
   /**
    * Constructor
    */
@@ -11,7 +11,6 @@ class WetKitMigrateBean extends XMLMigration {
     parent::__construct($arguments);
 
     $this->description = t('Migrate Bean Entities into the Web Experience Toolkit');
-    $this->dependencies = array('WetKitMigrateTaxonomy');
 
     // Create a map object for tracking the relationships between source rows.
     $this->map = new MigrateSQLMap($this->machineName,
@@ -33,7 +32,7 @@ class WetKitMigrateBean extends XMLMigration {
     );
 
     $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'wetkit_migrate') . '/migrations/bean';
-    $items_url = $xml_folder . '/migrate_bean.xml';
+    $items_url = $xml_folder . '/migrate_bean_slideout.xml';
     $item_xpath = '/bean/*/content';
     $item_id_xpath = 'source_id';
 
@@ -49,13 +48,20 @@ class WetKitMigrateBean extends XMLMigration {
          ->xpath('title');
     $this->addFieldMapping('label', 'label')
          ->xpath('title');
+
+    // Fields.
     $this->addFieldMapping('field_bean_wetkit_body', 'body')
          ->xpath('body');
+    $this->addFieldMapping('field_bean_icon', 'icon_bundle')
+         ->xpath('icon_bundle');
+    $this->addFieldMapping('field_bean_icon:icon', 'icon_icon')
+         ->xpath('icon_icon');
 
-    $this->addFieldMapping('field_bean_taxonomy', 'termname')
-         ->xpath('taxonomy');
-    $this->addFieldMapping('field_bean_taxonomy:ignore_case')
-         ->defaultValue(TRUE);
+    // Bean SlideOut settings.
+    $this->addFieldMapping('slideout_widget', 'slideout_widget')
+         ->xpath('slideout_widget');
+    $this->addFieldMapping('slideout_form', 'slideout_form')
+         ->xpath('slideout_form');
   }
 
   /**
@@ -92,73 +98,73 @@ class WetKitMigrateBean extends XMLMigration {
     $entity->field_bean_wetkit_body[$language][0]['format'] = 'wetkit_wysiwyg_text';
     $entity->field_bean_wetkit_body[$language][0]['safe_value'] = $row->body;
 
+    // Set some bean slideout fields.
+    $entity->data['view_mode'] = 'default';
+    $entity->data['slideout_settings']['configure_slideout_widget'] = $row->slideout_widget;
+    $entity->data['slideout_settings']['configure_slideout_form'] = $row->slideout_form;
+
+    $entity->slideout_settings['configure_slideout_widget'] = $row->slideout_widget;
+    $entity->slideout_settings['configure_slideout_form'] = $row->slideout_form;
+
     // If the title is empty, don't import this row.
     if (strlen(trim($entity->title_field[$language][0]['value'])) == 0) {
       throw new MigrateException(t("No title detected for: @sourceid", array('@sourceid' => $row->sourceid)), Migration::MESSAGE_NOTICE, MigrateMap::STATUS_IGNORED);
     }
 
-    // If the body is empty, don't import this row.
-    if (strlen(trim($entity->field_bean_wetkit_body[$language][0]['value'])) == 0) {
-      throw new MigrateException(t("No body detected for: @sourceid", array('@sourceid' => $row->sourceid)), Migration::MESSAGE_NOTICE, MigrateMap::STATUS_IGNORED);
-    }
-
-    // Map the French Content.
-    if ($language == 'fr') {
-
-      // Join Handling.
-      $sourceid = preg_replace('#_fra_#', '_eng_', $row->sourceid);
-      $entity->bid = db_query('SELECT b.destid1 FROM {migrate_map_wetkitmigratebean} b WHERE b.sourceid1 = :sourceid', array(':sourceid' => $sourceid))->fetchfield();
-      $entity->vid = db_query('SELECT b.vid FROM {bean} b WHERE b.bid = :beanid', array(':beanid' => $entity->bid))->fetchfield();
-
-      // Set title with English title for defaults.
-      $beans = bean_load($entity->bid, $entity->vid);
-      $entity->title = $beans->title;
-      $entity->label = $beans->label;
-      $entity->delta = $beans->delta;
-
-      // Hack for Bean Entities as only saving the bean once and not through
-      // admin which doesn't handle saving additional entities to same id.
-      $entity->is_new = FALSE;
-      db_insert('entity_translation')
-        ->fields(array(
-          'entity_type' => 'bean',
-          'entity_id' => $entity->bid,
-          'language' => $language,
-          'source' => 'en',
-          'uid' => '1',
-          'status' => '1',
-          'translate' => '0',
-          'created' => $beans->created,
-          'changed' => $beans->changed,
-        ))
-        ->execute();
-
-      // Entity Translation Handler.
-      $entity->translations = (object) array(
-        'original' => 'en',
-        'data' => array(
-          'en' => array(
-            'entity_type' => 'bean',
-            'entity_id' => $entity->bid,
-            'language' => 'en',
-            'source' => '',
-            'uid' => '1',
-            'status' => '1',
-            'translate' => '0',
-          ),
-          'fr' => array(
-            'entity_type' => 'bean',
-            'entity_id' => $entity->bid,
-            'language' => 'fr',
-            'source' => 'en',
-            'uid' => '1',
-            'status' => '1',
-            'translate' => '0',
-          ),
-        ),
-      );
-    }
     return $entity;
+  }
+
+  /**
+   * Implements Migration::complete();
+   */
+  public function complete($entity, stdClass $row) {
+
+    $machine_readable = strtolower($row->label);
+    $machine_readable = preg_replace('@[^a-z0-9_]+@','-',$machine_readable);
+
+    // Place Bean block
+    $block = array(
+        'module' => 'bean',
+        'delta' => $machine_readable,
+        'theme' => 'wetkit_bootstrap',
+        'status' => 1,
+        'weight' => -33,
+        'region' => 'content',
+        'pages' => '',
+        'visibility' => 0,
+        'title' => '<none>',
+        'cache' => DRUPAL_CACHE_GLOBAL,
+    );
+
+    db_merge('block')
+    ->key(
+      array(
+        'module' => 'bean',
+        'delta' => $machine_readable,
+        'theme' => 'wetkit_bootstrap',
+      )
+    )
+    ->fields(array_keys($block), $block)
+    ->execute();
+  }
+
+  /**
+   * Implements Migration::prepareRollback();
+   */
+  public function prepareRollback(array $ids) {
+    $result = db_query('SELECT b.destid2
+      FROM {migrate_map_wetkitmigratebeanslideout} b WHERE b.destid1 = :destid', array(':destid' => ($ids)));
+    foreach ($result as $record) {
+      $bean_id = $record->destid2;
+      $result = db_query('SELECT b.delta
+        FROM {bean} b WHERE b.vid = :vid', array(':vid' => $bean_id));
+      foreach ($result as $result_row) {
+        db_delete('block')
+          ->condition('module', 'bean')
+          ->condition('delta', $result_row->delta)
+          ->execute();
+      }
+    }
   }
 
   /**
@@ -172,6 +178,6 @@ class WetKitMigrateBean extends XMLMigration {
    * Get node bundle.
    */
   protected function getBundle() {
-    return 'wetkit_bean';
+    return 'wetkit_slideout';
   }
 }

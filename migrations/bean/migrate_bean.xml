@@ -79,6 +79,11 @@
             <body><![CDATA[<p>Job Alerts is a free email service that notifies you of new job postings twice a day. You can update or cancel your job alerts at any time. Job Alerts will continue to be refined and improved over time to ensure it works effectively and efficiently for users.</p>]]></body>
             <taxonomy>departments</taxonomy>
         </content>
+        <content>
+            <source_id>bean_eng_14</source_id>
+            <title>Main Features</title>
+            <body><![CDATA[<p>Here is some display content.</p>]]></body>
+        </content>
     </english>
     <french>
         <content>
@@ -158,6 +163,11 @@
             <title>S'abonner à Alerte-Emploi</title>
             <body><![CDATA[<p>Alerte-Emploi est un service de courriel gratuit qui vous informe deux fois par jour des nouvelles opportunités. Vous pouvez mettre à jour vos alertes-emploi ou vous désabonner en tout temps. Le service Alerte-Emploi continuera de faire l'objet de mises au point et d'améliorations au fil du temps afin de veiller à son bon fonctionnement pour les besoins des utilisateurs.</p>]]></body>
             <taxonomy>departments</taxonomy>
+        </content>
+        <content>
+            <source_id>bean_fra_14</source_id>
+            <title>Caractéristiques principales</title>
+            <body><![CDATA[<p>Voici une partie du contenu d'affichage.</p>]]></body>
         </content>
     </french>
 </bean>

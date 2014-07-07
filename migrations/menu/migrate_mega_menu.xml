@@ -6,13 +6,13 @@
                 <source_id>megamenu</source_id>
                 <menu_name>megamenu</menu_name>
                 <title>Mega Menu (Insert)</title>
-                <description>Mega Menu (Insert) Menu.</description>
+                <description>Mega Menu (Insert).</description>
             </section>
             <section>
                 <source_id>megamenu_focus</source_id>
                 <menu_name>megamenu-focus</menu_name>
                 <title>Mega Menu (Focus)</title>
-                <description>Mega Menu (Focus) Menu.</description>
+                <description>Mega Menu (Focus).</description>
             </section>
             <section>
                 <source_id>sidebar</source_id>
@@ -35,59 +35,52 @@
             <section>
                 <source_id>main_menu_eng_1_a</source_id>
                 <menu_name>main-menu</menu_name>
-                <link_title>Mini Panel</link_title>
+                <link_title>Front Page</link_title>
                 <link_path>front</link_path>
                 <parent>main_menu_eng_1</parent>
-                <minipanel>wetkit_mini_panels_home</minipanel>
                 <weight>1</weight>
             </section>
             <section>
                 <source_id>main_menu_eng_2</source_id>
                 <menu_name>main-menu</menu_name>
-                <link_title>Drupal WCMS</link_title>
-                <link_path>front</link_path>
+                <link_title>Example Pages</link_title>
+                <link_path>content/drupal-wxt</link_path>
                 <weight>2</weight>
-            </section>
-            <section>
-                <source_id>main_menu_eng_2_a</source_id>
-                <menu_name>main-menu</menu_name>
-                <link_title>Mini Panel</link_title>
-                <link_path>front</link_path>
-                <parent>main_menu_eng_2</parent>
-                <minipanel>wetkit_mini_panels_drupal_wcms</minipanel>
-                <weight>1</weight>
             </section>
             <section>
                 <source_id>main_menu_eng_3</source_id>
                 <menu_name>main-menu</menu_name>
-                <link_title>GitHub</link_title>
-                <link_path>https://github.com</link_path>
+                <link_title>Drupal WCMS</link_title>
+                <link_path>http://drupalwxt.org</link_path>
                 <weight>3</weight>
-            </section>
-            <section>
-                <source_id>main_menu_eng_3_a</source_id>
-                <menu_name>main-menu</menu_name>
-                <link_title>Mini Panel</link_title>
-                <link_path>front</link_path>
-                <parent>main_menu_eng_3</parent>
-                <minipanel>wetkit_mini_panels_drupal_github</minipanel>
-                <weight>1</weight>
             </section>
             <section>
                 <source_id>main_menu_eng_4</source_id>
                 <menu_name>main-menu</menu_name>
-                <link_title>Example Pages</link_title>
-                <link_path>front</link_path>
+                <link_title>GitHub</link_title>
+                <link_path>https://github.com</link_path>
                 <weight>4</weight>
             </section>
             <section>
-                <source_id>main_menu_eng_4_a</source_id>
+                <source_id>main_menu_eng_5</source_id>
                 <menu_name>main-menu</menu_name>
-                <link_title>Mini Panel</link_title>
-                <link_path>front</link_path>
-                <parent>main_menu_eng_4</parent>
-                <minipanel>wetkit_mini_panels_example_pages</minipanel>
-                <weight>1</weight>
+                <link_title>Documentation</link_title>
+                <link_path>http://wet-boew.github.io</link_path>
+                <weight>5</weight>
+            </section>
+            <section>
+                <source_id>main_menu_eng_6</source_id>
+                <menu_name>main-menu</menu_name>
+                <link_title>Implementations</link_title>
+                <link_path>http://wet-boew.github.io/wet-boew/docs/ref/wetsites-en.html</link_path>
+                <weight>6</weight>
+            </section>
+            <section>
+                <source_id>main_menu_eng_7</source_id>
+                <menu_name>main-menu</menu_name>
+                <link_title>Roadmap</link_title>
+                <link_path>http://wet-boew.github.io/wet-boew/docs/versions/rdmp-en.html</link_path>
+                <weight>7</weight>
             </section>
             <!-- END MAIN MENU -->
             <!-- BEGIN MEGAMENU FOCUS -->
@@ -580,59 +573,52 @@
             <section>
                 <source_id>main_menu_fra_1_a</source_id>
                 <menu_name>main-menu</menu_name>
-                <link_title>Mini Panel</link_title>
+                <link_title>Première page</link_title>
                 <link_path>front</link_path>
                 <parent>main_menu_fra_1</parent>
-                <minipanel>wetkit_mini_panels_home</minipanel>
                 <weight>1</weight>
             </section>
             <section>
                 <source_id>main_menu_fra_2</source_id>
                 <menu_name>main-menu</menu_name>
-                <link_title>WCMS Drupal</link_title>
-                <link_path>front</link_path>
+                <link_title>Pages d'Examples</link_title>
+                <link_path>contenu/wxt-drupal</link_path>
                 <weight>2</weight>
-            </section>
-            <section>
-                <source_id>main_menu_fra_2_a</source_id>
-                <menu_name>main-menu</menu_name>
-                <link_title>Mini Panel</link_title>
-                <link_path>front</link_path>
-                <parent>main_menu_fra_2</parent>
-                <minipanel>wetkit_mini_panels_drupal_wcms</minipanel>
-                <weight>1</weight>
             </section>
             <section>
                 <source_id>main_menu_fra_3</source_id>
                 <menu_name>main-menu</menu_name>
-                <link_title>GitHub</link_title>
-                <link_path>https://github.com</link_path>
+                <link_title>WCMS Drupal</link_title>
+                <link_path>http://www.drupalwxt.org</link_path>
                 <weight>3</weight>
-            </section>
-            <section>
-                <source_id>main_menu_fra_3_a</source_id>
-                <menu_name>main-menu</menu_name>
-                <link_title>Mini Panel</link_title>
-                <link_path>front</link_path>
-                <parent>main_menu_fra_3</parent>
-                <minipanel>wetkit_mini_panels_drupal_github</minipanel>
-                <weight>1</weight>
             </section>
             <section>
                 <source_id>main_menu_fra_4</source_id>
                 <menu_name>main-menu</menu_name>
-                <link_title>Pages d'Examples</link_title>
-                <link_path>front</link_path>
+                <link_title>GitHub</link_title>
+                <link_path>https://github.com</link_path>
                 <weight>4</weight>
             </section>
             <section>
-                <source_id>main_menu_fra_4_a</source_id>
+                <source_id>main_menu_fra_5</source_id>
                 <menu_name>main-menu</menu_name>
-                <link_title>Mini Panel</link_title>
-                <link_path>front</link_path>
-                <parent>main_menu_fra_4</parent>
-                <minipanel>wetkit_mini_panels_example_pages</minipanel>
-                <weight>1</weight>
+                <link_title>Documentation</link_title>
+                <link_path>http://wet-boew.github.io</link_path>
+                <weight>5</weight>
+            </section>
+            <section>
+                <source_id>main_menu_fra_6</source_id>
+                <menu_name>main-menu</menu_name>
+                <link_title>Implémentations</link_title>
+                <link_path>http://wet-boew.github.io/wet-boew/docs/ref/wetsites-fr.html</link_path>
+                <weight>6</weight>
+            </section>
+            <section>
+                <source_id>main_menu_fra_7</source_id>
+                <menu_name>main-menu</menu_name>
+                <link_title>Feuille de route</link_title>
+                <link_path>http://wet-boew.github.io/wet-boew/docs/versions/rdmp-fr.html</link_path>
+                <weight>7</weight>
             </section>
             <!-- END MAIN MENU -->
             <!-- BEGIN MEGAMENU FOCUS -->

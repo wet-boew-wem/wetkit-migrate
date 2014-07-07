@@ -15,11 +15,15 @@ function wetkit_migrate_install() {
 
   // Migration Instantiation.
   MigrationBase::registerMigration('WetKitMigrateBean');
+  MigrationBase::registerMigration('WetKitMigrateBeanSlideOut');
+  MigrationBase::registerMigration('WetKitMigrateBeanSlideShow');
+  MigrationBase::registerMigration('WetKitMigrateFldCollectionSlides');
   MigrationBase::registerMigration('WetKitMigrateDefaultContent');
   MigrationBase::registerMigration('WetKitMigrateDefaultContentMedia');
   MigrationBase::registerMigration('WetKitMigrateDocumentation');
   MigrationBase::registerMigration('WetKitMigrateDocumentationMenu');
   MigrationBase::registerMigration('WetKitMigrateDocumentationMenuLinks');
+  MigrationBase::registerMigration('WetKitMigrateFileBeanSlideShow');
   MigrationBase::registerMigration('WetKitMigrateMegaMenu');
   MigrationBase::registerMigration('WetKitMigrateMegaMenuLinks');
   MigrationBase::registerMigration('WetKitMigrateSiteMenu');
@@ -43,11 +47,15 @@ function wetkit_migrate_uninstall() {
 
   // Migration deRegistration.
   MigrationBase::deregisterMigration('WetKitMigrateBean');
+  MigrationBase::deregisterMigration('WetKitMigrateBeanSlideOut');
+  MigrationBase::deregisterMigration('WetKitMigrateBeanSlideShow');
+  MigrationBase::deregisterMigration('WetKitMigrateFldCollectionSlides');
   MigrationBase::deregisterMigration('WetKitMigrateDefaultContent');
   MigrationBase::deregisterMigration('WetKitMigrateDefaultContentMedia');
   MigrationBase::deregisterMigration('WetKitMigrateDocumentation');
   MigrationBase::deregisterMigration('WetKitMigrateDocumentationMenu');
   MigrationBase::deregisterMigration('WetKitMigrateDocumentationMenuLinks');
+  MigrationBase::deregisterMigration('WetKitMigrateFileBeanSlideShow');
   MigrationBase::deregisterMigration('WetKitMigrateMegaMenu');
   MigrationBase::deregisterMigration('WetKitMigrateMegaMenuLinks');
   MigrationBase::deregisterMigration('WetKitMigrateSiteMenu');

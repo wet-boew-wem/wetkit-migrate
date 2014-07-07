@@ -21,6 +21,9 @@ function wetkit_migrate_migrate_api() {
     // UI. You may also have additional arguments for any other data which is
     // common to all migrations in the group.
     'groups' => array(
+      'BeanMigrate' => array(
+        'title' => t('Bean Imports'),
+      ),
       'DefaultContentMigrate' => array(
         'title' => t('Content Imports'),
       ),
@@ -42,7 +45,15 @@ function wetkit_migrate_migrate_api() {
     'migrations' => array(
       'WetKitMigrateBean' => array(
         'class_name' => 'WetKitMigrateBean',
-        'group_name' => 'DefaultContentMigrate',
+        'group_name' => 'BeanMigrate',
+      ),
+      'WetKitMigrateBeanSlideOut' => array(
+        'class_name' => 'WetKitMigrateBeanSlideOut',
+        'group_name' => 'BeanMigrate',
+      ),
+      'WetKitMigrateBeanSlideShow' => array(
+        'class_name' => 'WetKitMigrateBeanSlideShow',
+        'group_name' => 'BeanMigrate',
       ),
       'WetKitMigrateDefaultContent' => array(
         'class_name' => 'WetKitMigrateDefaultContent',
@@ -63,6 +74,14 @@ function wetkit_migrate_migrate_api() {
       'WetKitMigrateDocumentationMenuLinks' => array(
         'class_name' => 'WetKitMigrateDocumentationMenuLinks',
         'group_name' => 'DocumentationMigrate',
+      ),
+      'WetKitMigrateFileBeanSlideShow' => array(
+        'class_name' => 'WetKitMigrateFileBeanSlideShow',
+        'group_name' => 'BeanMigrate',
+      ),
+      'WetKitMigrateFldCollectionSlides' => array(
+        'class_name' => 'WetKitMigrateFldCollectionSlides',
+        'group_name' => 'BeanMigrate',
       ),
       'WetKitMigrateMegaMenu' => array(
         'class_name' => 'WetKitMigrateMegaMenu',
