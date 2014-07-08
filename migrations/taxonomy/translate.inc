@@ -4,7 +4,7 @@
 // Run command: drush scr translate.drush.inc or
 // use devel at admin/devel/php to localize
 
-if (($handle = fopen("/import/taxonomy_localize.csv", "r")) !== FALSE) {
+if (($handle = fopen("taxonomy_localize.csv", "r")) !== FALSE) {
  print "Starting loading french strings: " . date('h:i:s A') ."\n";
  while (($data = fgetcsv($handle, 1000, ',','"')) !== FALSE) {
     $vocab = "wetkit_categories";
