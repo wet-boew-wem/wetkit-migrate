@@ -43,9 +43,9 @@ class WetKitMigrateBeanSlideShow extends XMLMigration {
     $this->destination = new MigrateDestinationBean($this->getEntityType(), $this->getBundle(), array('language' => $language));
 
     $this->addFieldMapping('title', 'title')
-         ->xpath('title');
+         ->defaultValue('');
     $this->addFieldMapping('title_field', 'title')
-         ->xpath('title');
+         ->defaultValue('');
     $this->addFieldMapping('label', 'label')
          ->xpath('title');
 
@@ -77,14 +77,9 @@ class WetKitMigrateBeanSlideShow extends XMLMigration {
 
     // Title Module support.
     if (module_exists('title')) {
-      $entity->title_field[$language][0]['value'] = $row->title;
+      $entity->title_field[$language][0]['value'] = '';
       $entity->title_field[$language][0]['format'] = 'plain_text';
-      $entity->title_field[$language][0]['safe_value'] = $row->title;
-    }
-
-    // If the title is empty, don't import this row.
-    if (strlen(trim($entity->title_field[$language][0]['value'])) == 0) {
-      throw new MigrateException(t("No title detected for: @sourceid", array('@sourceid' => $row->sourceid)), Migration::MESSAGE_NOTICE, MigrateMap::STATUS_IGNORED);
+      $entity->title_field[$language][0]['safe_value'] = '';
     }
 
     // Set some bean slideshow fields.
