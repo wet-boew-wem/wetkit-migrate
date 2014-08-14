@@ -11,6 +11,7 @@ projects[migrate][subdir] = contrib
 projects[migrate][download][type] = git
 projects[migrate][download][revision] = 9511d72
 projects[migrate][download][branch] = 7.x-2.x
+projects[migrate][patch][2290027] = http://drupal.org/files/issues/migrate_uuid_keep-2290027-02.patch
 
 projects[migrate_extras][version] = 2.5
 projects[migrate_extras][type] = module
