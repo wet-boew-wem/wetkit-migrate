@@ -17,3 +17,13 @@ projects[migrate_extras][version] = 2.5
 projects[migrate_extras][type] = module
 projects[migrate_extras][subdir] = contrib
 projects[migrate_extras][patch][2126725] = http://drupal.org/files/issues/migrate_media_attributes-2126725-01.patch
+
+; Libraries
+
+libraries[spyc][download][type] = get
+libraries[spyc][download][url] = https://github.com/mustangostang/spyc/archive/0.5.1.tar.gz
+
+libraries[querypath][download][type] = git
+libraries[querypath][download][branch] = 3.x
+libraries[querypath][download][revision] = eeb67cc
+libraries[querypath][download][url] = https://github.com/technosophos/querypath.git
