@@ -71,3 +71,20 @@ function wetkit_migrate_uninstall() {
     }
   }
 }
+
+/**
+ * Implementations of hook_update_N().
+ */
+
+/**
+ * Register new Migration Classes.
+ */
+function wetkit_migrate_update_7201() {
+  // Enable Migration Classes for 2.x  branch.
+  MigrationBase::registerMigration('WetKitMigrateBean');
+  MigrationBase::registerMigration('WetKitMigrateBeanSlideOut');
+  MigrationBase::registerMigration('WetKitMigrateBeanSlideShow');
+  MigrationBase::registerMigration('WetKitMigrateFldCollectionSlides');
+  MigrationBase::registerMigration('WetKitMigrateFileBeanSlideShow');
+  MigrationBase::registerMigration('WetKitMigrateTaxonomy');
+}
