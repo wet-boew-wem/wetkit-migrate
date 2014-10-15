@@ -13,6 +13,10 @@
                     <alt>Canada Day Event</alt>
                 </media_field>
             </image>
+            <link>
+                <link_title><![CDATA[Canada Day Festivities]]></link_title>
+                <link_url><![CDATA[www.canadaday.gc.ca]]></link_url>
+            </link>
         </content>
         <content>
             <source_id>field_collection_slides_eng_2</source_id>
@@ -26,6 +30,10 @@
                     <alt>Aboriginal Awareness Day</alt>
                 </media_field>
             </image>
+            <link>
+                <link_title><![CDATA[National Aboriginal Awareness Week]]></link_title>
+                <link_url><![CDATA[https://www.aadnc-aandc.gc.ca]]></link_url>
+            </link>
         </content>
     </english>
     <french>
@@ -41,6 +49,10 @@
                     <alt>Canada Day Event</alt>
                 </media_field>
             </image>
+            <link>
+                <link_title><![CDATA[Fête du Canada]]></link_title>
+                <link_url><![CDATA[http://feteducanada.gc.ca]]></link_url>
+            </link>
         </content>
         <content>
             <source_id>field_collection_slides_fra_2</source_id>
@@ -54,6 +66,10 @@
                     <alt>Journée de sensibilisation aux cultures autochtones</alt>
                 </media_field>
             </image>
+            <link>
+                <link_title><![CDATA[Semaine nationale de sensibilisation aux cultures autochtones]]></link_title>
+                <link_url><![CDATA[https://www.aadnc-aandc.gc.ca]]></link_url>
+            </link>
         </content>
     </french>
 </bean>

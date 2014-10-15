@@ -58,6 +58,10 @@ class WetKitMigrateFldCollectionSlides extends XMLMigration {
          ->xpath('slide_headline');
     $this->addFieldMapping('field_slide_teaser', 'slide_teaser')
          ->xpath('slide_teaser');
+    $this->addFieldMapping('field_slide_link:title', 'slide_title')
+         ->xpath('link/link_title');
+    $this->addFieldMapping('field_slide_link', 'slide_link')
+         ->xpath('link/link_url');
   }
 
   /**
