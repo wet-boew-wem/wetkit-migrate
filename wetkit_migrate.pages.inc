@@ -18,7 +18,7 @@ function wetkit_migrate_form() {
 
   $form['documentation']['WetKitMigrateDocumentation_basedir'] = array(
     '#title' => t('Documentation migration base directory'),
-    '#type' => t('textfield'),
+    '#type' => 'textfield',
     '#maxlength' => 255,
     '#size' => 50,
     '#default_value' => variable_get('WetKitMigrateDocumentation_basedir'),
@@ -27,7 +27,7 @@ function wetkit_migrate_form() {
 
   $form['documentation']['WetKitMigrateDocumentation_listdir'] = array(
     '#title' => t('Documentation migration source files directory'),
-    '#type' => t('textfield'),
+    '#type' => 'textfield',
     '#maxlength' => 255,
     '#size' => 50,
     '#default_value' => variable_get('WetKitMigrateDocumentation_listdir'),
@@ -36,7 +36,7 @@ function wetkit_migrate_form() {
 
   $form['documentation']['WetKitMigrateDocumentation_files'] = array(
     '#title' => t('Documentation Files Root Directory'),
-    '#type' => t('textfield'),
+    '#type' => 'textfield',
     '#maxlength' => 255,
     '#size' => 50,
     '#default_value' => variable_get('WetKitMigrateDocumentation_files'),
