@@ -79,8 +79,8 @@ function wetkit_migrate_uninstall() {
 /**
  * Register new Migration Classes.
  */
-function wetkit_migrate_update_7201() {
-  // Enable Migration Classes for 2.x  branch.
+function wetkit_migrate_update_7401() {
+  // Enable Migration Classes for 4.x  branch.
   MigrationBase::registerMigration('WetKitMigrateBean');
   MigrationBase::registerMigration('WetKitMigrateBeanSlideOut');
   MigrationBase::registerMigration('WetKitMigrateBeanSlideShow');
