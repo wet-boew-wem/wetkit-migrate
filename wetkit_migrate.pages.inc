@@ -11,7 +11,7 @@ function wetkit_migrate_form() {
 
   // Documentation.
   $form['documentation'] = array(
-    '#title' => 'Migration Settings',
+    '#title' => t('Migration Settings'),
     '#type'  => 'fieldset',
     '#collapsible' => 'true',
   );
