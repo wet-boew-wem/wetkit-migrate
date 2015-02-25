@@ -1,5 +1,5 @@
 name = WetKit Migrate Content Types
-description = This features contains the custom content types and other configuration used by the WetKit Migrate Module
+description = This features contains the custom content types and other configuration used by the WetKit Migrate module, part of the Drupal Web Experience Toolkit (WxT).
 core = 7.x
 package = WetKit
 dependencies[] = ctools
