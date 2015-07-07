@@ -19,6 +19,7 @@ class WetKitMigrateBeanSlideOut extends XMLMigration {
           'type' => 'varchar',
           'length' => 255,
           'not null' => TRUE,
+          'description' => 'Bean Slideout ID',
         ),
       ),
       MigrateDestinationBean::getKeySchema('bean')

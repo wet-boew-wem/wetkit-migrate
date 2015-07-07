@@ -23,7 +23,7 @@ class WetKitMigrateFileBeanSlideShow extends XMLMigration {
           'type' => 'varchar',
           'length' => 255,
           'not null' => TRUE,
-          'description' => 'Image filename',
+          'description' => 'File Entity ID',
         )
       ),
       MigrateDestinationMedia::getKeySchema()

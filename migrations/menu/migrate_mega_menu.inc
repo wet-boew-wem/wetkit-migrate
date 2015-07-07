@@ -22,6 +22,7 @@ class WetKitMigrateMegaMenu extends XMLMigration {
           'type' => 'varchar',
           'length' => 255,
           'not null' => TRUE,
+          'description' => 'MegaMenu ID',
         ),
       ),
       MigrateDestinationMenu::getKeySchema()
@@ -74,6 +75,7 @@ class WetKitMigrateMegaMenuLinks extends XMLMigration {
           'type' => 'varchar',
           'length' => 255,
           'not null' => TRUE,
+          'description' => 'Mega Menu Links ID',
         ),
       ),
       MigrateDestinationMenuLinks::getKeySchema()

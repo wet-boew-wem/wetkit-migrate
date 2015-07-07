@@ -20,6 +20,7 @@ class WetKitMigrateBean extends XMLMigration {
           'type' => 'varchar',
           'length' => 255,
           'not null' => TRUE,
+          'description' => 'Bean ID',
         ),
       ),
       MigrateDestinationBean::getKeySchema('bean')

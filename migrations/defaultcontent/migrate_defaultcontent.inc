@@ -42,7 +42,7 @@ class WetKitMigrateDefaultContentMedia extends WetKitDCMigration {
           'type' => 'varchar',
           'length' => 255,
           'not null' => TRUE,
-          'description' => 'Image filename',
+          'description' => 'Media filename',
         )
       ),
       MigrateDestinationMedia::getKeySchema()
@@ -192,6 +192,7 @@ class WetKitMigrateDefaultContent extends WetKitDCMigration {
           'type' => 'varchar',
           'length' => 255,
           'not null' => TRUE,
+          'description' => 'Content ID',
         ),
       ),
       MigrateDestinationMenu::getKeySchema()

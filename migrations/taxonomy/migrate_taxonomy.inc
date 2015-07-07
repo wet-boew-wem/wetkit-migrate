@@ -42,6 +42,7 @@ class WetKitMigrateTaxonomy extends WetKitTaxMigration {
             'type' => 'int',
             'length' => 255,
             'not null' => TRUE,
+            'description' => 'Taxonomy ID',
             ),
           ),
         MigrateDestinationTerm::getKeySchema()

@@ -20,6 +20,7 @@ class WetKitMigrateFldCollectionSlides extends XMLMigration {
           'type' => 'varchar',
           'length' => 255,
           'not null' => TRUE,
+          'description' => 'Field Collection ID',
         ),
       ),
       MigrateDestinationFieldCollection::getKeySchema()

@@ -79,6 +79,7 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
             'type' => 'varchar',
             'length' => 255,
             'not null' => TRUE,
+            'description' => 'Documentation ID',
           ),
         ),
         MigrateDestinationNode::getKeySchema()
