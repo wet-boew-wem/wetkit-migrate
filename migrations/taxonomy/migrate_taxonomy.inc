@@ -5,9 +5,32 @@
  */
 
 /**
- * Migration class for the Default Content for Statistics Canada CORS.
+ * Abstract Migration class for Default Content for the Web Experience Toolkit.
  */
-class WetKitMigrateTaxonomy extends Migration {
+abstract class WetKitTaxMigration extends Migration {
+
+  /**
+   * ProcessImport for WetKit Migration.
+   *
+   * @param array $options
+   *   Process the import array.
+   */
+  public function processImport(array $options = array()) {
+    parent::processImport($options);
+    // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
+    // in each node_insert invocation.
+    variable_set('menu_rebuild_needed', FALSE);
+  }
+}
+
+/**
+ * Migration class for taxonomy.
+ */
+class WetKitMigrateTaxonomy extends WetKitTaxMigration {
+
+  /**
+   * Implements the migration constructor.
+   */
   public function __construct($arguments) {
     parent::__construct($arguments);
 
