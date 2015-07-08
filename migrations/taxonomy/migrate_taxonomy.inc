@@ -65,6 +65,8 @@ class WetKitMigrateTaxonomy extends WetKitTaxMigration {
     // Assign mappings to destination fields from source fields.
     $this->addFieldMapping('name_field', 'name_field');
     $this->addFieldMapping('parent_name', 'parent_name');
+    $this->addFieldMapping('pathauto')
+         ->defaultValue(0);
   }
 
   /**
