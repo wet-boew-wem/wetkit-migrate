@@ -124,6 +124,7 @@ class WetKitMigrateBean extends XMLMigration {
         ->fields(array(
           'entity_type' => 'bean',
           'entity_id' => $entity->bid,
+          'revision_id' => '1',
           'language' => $language,
           'source' => 'en',
           'uid' => '1',
