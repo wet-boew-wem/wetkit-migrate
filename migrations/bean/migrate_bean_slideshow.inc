@@ -86,19 +86,19 @@ class WetKitMigrateBeanSlideShow extends XMLMigration {
     // Set some bean slideshow fields.
     $entity->data['image_style'] = '<none>';
     $entity->data['plugin_settings'] = array(
+      'animate_effect' => 'fade',
       'autoplay' => 1,
-      'animate_effect' => 'animate',
-      'rotate_effect' => 'cycle',
-      'tabs_style_effect' => 'tabs-style-3'
+      'rotate_speed' => 'slow',
+      'carousel' => 'carousel-s1'
     );
     $entity->data['slideshow_plugin'] = 'wetkit_slide:tabbedinterface';
 
     $entity->image_style = '<none>';
     $entity->plugin_settings = array(
+      'animate_effect' => 'fade',
       'autoplay' => 1,
-      'animate_effect' => 'animate',
-      'rotate_effect' => 'cycle',
-      'tabs_style_effect' => 'tabs-style-3'
+      'rotate_speed' => 'slow',
+      'carousel' => 'carousel-s1'
     );
     $entity->slideshow_plugin = 'wetkit_slide:tabbedinterface';
 
