@@ -89,7 +89,7 @@ class WetKitMigrateBeanSlideShow extends XMLMigration {
       'animate_effect' => 'fade',
       'autoplay' => 1,
       'rotate_speed' => 'slow',
-      'carousel' => 'carousel-s1'
+      'carousel' => 'carousel-s2'
     );
     $entity->data['slideshow_plugin'] = 'wetkit_slide:tabbedinterface';
 
@@ -98,7 +98,7 @@ class WetKitMigrateBeanSlideShow extends XMLMigration {
       'animate_effect' => 'fade',
       'autoplay' => 1,
       'rotate_speed' => 'slow',
-      'carousel' => 'carousel-s1'
+      'carousel' => 'carousel-s2'
     );
     $entity->slideshow_plugin = 'wetkit_slide:tabbedinterface';
 
