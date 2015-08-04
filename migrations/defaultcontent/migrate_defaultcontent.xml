@@ -10,13 +10,13 @@
 
 <p>Fundamentally this distribution relies and integrates extensively with the <a href="http://github.com/wet-boew/wet-boew">WET-BOEW jQuery Framework</a> to leverage much of the accessibility support and extensively tested markup. Omega 4.x is used as the base theme for its exceptional HTML5 support and SASS / SMACSS based architecture. Where possible Drupal WxT will also pull work from the <a href="http://drupal.org/project/panopoly">Panopoly</a> and <a href="http://drupal.org/project/spark">Spark</a> Distributions due to the UX features and forward thinking design.</p>
 
-<p>Development has been tailored for organizations that need to comply with standards for accessibility and bilingualism or that simply need a content staging based distribution that allows them to get up and running quickly using a carefully curated selection of modules that can support common enterprise business requirements. Specific information about how to work with this distribution can be found here: <a href="http://wiki.drupalwxt.org">Wiki Documentation</a></p>
+<p>Development has been tailored for organizations that need to comply with standards for accessibility and bilingualism or that simply need a content staging based distribution that allows them to get up and running quickly using a carefully curated selection of modules that can support common enterprise business requirements. Specific information about how to work with this distribution can be found here: <a href="http://drupalwxt.github.io">Wiki Documentation</a></p>
 
 <section>
   <h2>Important Links</h2>
   <ul>
     <li>Change Log: <a href="https://github.com/wet-boew/wet-boew-drupal/blob/7.x-1.x/CHANGELOG.md">changelog.md</a></li>
-    <li>Documentation Website: <a href="http://wiki.drupawxt.org">wiki.drupalwxt.org</a></li>
+    <li>Documentation Website: <a href="http://drupalwxt.github.io">drupalwxt.github.io</a></li>
     <li>Drupal Repository: <a href="http://drupal.org/project/wetkit">drupal.org/project/wetkit</a></li>
     <li>GitHub Repository: <a href="https://github.com/wet-boew/wet-boew-drupal">wet-boew/wet-boew-drupal</a></li>
     <li>Issue Queue: <a href="http://drupal.org/project/wetkit">Drupal (Primary)</a></li>
@@ -121,13 +121,13 @@
 
 <p>Fondamentalement, cette distribution se fonde et basée sur <a href="http://github.com/wet-boew/wet-boew">WET-BOEW jQuery Framework</a> et s’intègre bien avec celui-ci afin d'exploité une grande partie de l'appui de l'accessibilité et de nombreux tests balisage. Omega 4.x est utilisé comme thème de base pour son soutien HTML5 exceptionnel et une architecture basée SASS / SMACSS. Lorsque cela est possible WxT Drupal sera également tiré de travaux de la <a href="http://drupal.org/project/panopoly">Panopoly</a> and <a href="http://drupal.org/project/spark">Spark</a> Distributions en raison des caractéristiques UX et la conception avant-gardiste.</p>
 
-<p>Le développement a été adapté pour les organisations qui doivent se conformer aux normes d'accessibilité et de bilinguisme ou qui ont simplement besoin d'une teneur en scène distribution basée qui leur permet de se lever et courir rapidement en utilisant une sélection soigneusement organisée de modules qui peuvent les besoins communs d'affaires de l'entreprise. Des informations spécifiques sur la façon de travailler avec cette distribution peut être trouvé ici: <a href="http://wiki.drupalwxt.org">Wiki Documentation</a></p>
+<p>Le développement a été adapté pour les organisations qui doivent se conformer aux normes d'accessibilité et de bilinguisme ou qui ont simplement besoin d'une teneur en scène distribution basée qui leur permet de se lever et courir rapidement en utilisant une sélection soigneusement organisée de modules qui peuvent les besoins communs d'affaires de l'entreprise. Des informations spécifiques sur la façon de travailler avec cette distribution peut être trouvé ici: <a href="http://drupalwxt.github.io">Wiki Documentation</a></p>
 
 <section>
   <h2>Liens importants</h2>
   <ul>
     <li>Change Log: <a href="https://github.com/wet-boew/wet-boew-drupal/blob/7.x-1.x/CHANGELOG.md">changelog.md</a></li>
-    <li>Documentation Website: <a href="http://wiki.drupawxt.org">wiki.drupalwxt.org</a></li>
+    <li>Documentation Website: <a href="http://drupalwxt.github.io">drupalwxt.github.io</a></li>
     <li>Drupal Repository: <a href="http://drupal.org/project/wetkit">drupal.org/project/wetkit</a></li>
     <li>GitHub Repository: <a href="https://github.com/wet-boew/wet-boew-drupal">wet-boew/wet-boew-drupal</a></li>
     <li>Issue Queue: <a href="http://drupal.org/project/wetkit">Drupal (Primary)</a></li>

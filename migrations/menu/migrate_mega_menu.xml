@@ -131,7 +131,7 @@
                 <source_id>main_menu_eng_4_c</source_id>
                 <menu_name>main-menu</menu_name>
                 <link_title>Documentation</link_title>
-                <link_path>http://wiki.drupalwxt.org</link_path>
+                <link_path>http://drupalwxt.github.io</link_path>
                 <parent>main_menu_eng_4</parent>
                 <weight>2</weight>
             </section>
@@ -347,7 +347,7 @@
                 <source_id>megamenu_eng_3_c</source_id>
                 <menu_name>megamenu</menu_name>
                 <link_title>Wiki Page</link_title>
-                <link_path>http://wiki.drupalwxt.org</link_path>
+                <link_path>http://drupalwxt.github.io</link_path>
                 <parent>megamenu_eng_3_a</parent>
                 <weight>1</weight>
             </section>
@@ -379,7 +379,7 @@
                 <source_id>megamenu_eng_3_g</source_id>
                 <menu_name>megamenu</menu_name>
                 <link_title>Wiki Page</link_title>
-                <link_path>http://wiki.drupalwxt.org</link_path>
+                <link_path>http://drupalwxt.github.io</link_path>
                 <parent>megamenu_eng_3_e</parent>
                 <weight>1</weight>
             </section>
@@ -569,7 +569,7 @@
                 <source_id>sidebar_eng_3_c</source_id>
                 <menu_name>sidebar</menu_name>
                 <link_title>Wiki Page</link_title>
-                <link_path>http://wiki.drupalwxt.org</link_path>
+                <link_path>http://drupalwxt.github.io</link_path>
                 <parent>sidebar_eng_3_a</parent>
                 <weight>1</weight>
             </section>
@@ -601,7 +601,7 @@
                 <source_id>sidebar_eng_3_g</source_id>
                 <menu_name>sidebar</menu_name>
                 <link_title>Wiki Page</link_title>
-                <link_path>http://wiki.drupalwxt.org</link_path>
+                <link_path>http://drupalwxt.github.io</link_path>
                 <parent>sidebar_eng_3_e</parent>
                 <weight>1</weight>
             </section>
@@ -754,7 +754,7 @@
                 <source_id>main_menu_fra_4_c</source_id>
                 <menu_name>main-menu</menu_name>
                 <link_title>Documentation</link_title>
-                <link_path>http://wiki.drupalwxt.org</link_path>
+                <link_path>http://drupalwxt.github.io</link_path>
                 <parent>main_menu_fra_4</parent>
                 <weight>2</weight>
             </section>
@@ -970,7 +970,7 @@
                 <source_id>megamenu_fra_3_c</source_id>
                 <menu_name>megamenu</menu_name>
                 <link_title>Page Wiki</link_title>
-                <link_path>http://wiki.drupalwxt.org</link_path>
+                <link_path>http://drupalwxt.github.io</link_path>
                 <parent>megamenu_fra_3_a</parent>
                 <weight>1</weight>
             </section>
@@ -1002,7 +1002,7 @@
                 <source_id>megamenu_fra_3_g</source_id>
                 <menu_name>megamenu</menu_name>
                 <link_title>Page Wiki</link_title>
-                <link_path>http://wiki.drupalwxt.org</link_path>
+                <link_path>http://drupalwxt.github.io</link_path>
                 <parent>megamenu_fra_3_e</parent>
                 <weight>1</weight>
             </section>
@@ -1184,7 +1184,7 @@
                 <source_id>sidebar_fra_3_c</source_id>
                 <menu_name>sidebar</menu_name>
                 <link_title>Page Wiki</link_title>
-                <link_path>http://wiki.drupalwxt.org</link_path>
+                <link_path>http://drupalwxt.github.io</link_path>
                 <parent>sidebar_fra_3_a</parent>
                 <weight>1</weight>
             </section>
@@ -1216,7 +1216,7 @@
                 <source_id>sidebar_fra_3_g</source_id>
                 <menu_name>sidebar</menu_name>
                 <link_title>Page Wiki</link_title>
-                <link_path>http://wiki.drupalwxt.org</link_path>
+                <link_path>http://drupalwxt.github.io</link_path>
                 <parent>sidebar_fra_3_e</parent>
                 <weight>1</weight>
             </section>
