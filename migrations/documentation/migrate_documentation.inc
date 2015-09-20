@@ -46,7 +46,7 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
     $directories = array(
       $library_path . '/demos',
     );
-    $base_dir = $library_path . '/demos',
+    $base_dir = $library_path . '/demos';
     $file_mask = '/(.*en\.htm$|.*en\.html|.*fr\.htm$|.*fr\.html$)/i';
 
     $options = array(
