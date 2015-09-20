@@ -40,26 +40,13 @@ class WetKitMigrateDocumentation extends WetKitDocMigration {
 
     // Based on the current theme choose the correct
     // documentation to migrate.
-    if (variable_get('wetkit_wetboew_theme', 0) == 1) {
-      $directory = 'theme-gcwu-fegc';
-    }
-    elseif (variable_get('wetkit_wetboew_theme', 0) == 2) {
-      $directory = 'theme-gcwu-intranet';
-    }
-    elseif (variable_get('wetkit_wetboew_theme', 0) == 3) {
-      $directory = 'theme-base';
-    }
-    elseif (variable_get('wetkit_wetboew_theme', 0) == 4) {
-      $directory = 'theme-ogpl';
-    }
-    else {
-      $directory = 'theme-wet-boew';
-    }
+    $wxt_active = variable_get('wetkit_wetboew_theme', 'theme-wet-boew');
+    $library_path = libraries_get_path($wxt_active, TRUE);
 
     $directories = array(
-      libraries_get_path('wet-boew') . '/demos/' . $directory,
+      $library_path . '/demos',
     );
-    $base_dir = libraries_get_path('wet-boew') . '/demos/' . $directory;
+    $base_dir = $library_path . '/demos',
     $file_mask = '/(.*en\.htm$|.*en\.html|.*fr\.htm$|.*fr\.html$)/i';
 
     $options = array(
