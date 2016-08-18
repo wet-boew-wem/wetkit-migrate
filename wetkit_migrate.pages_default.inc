@@ -75,6 +75,8 @@ function wetkit_migrate_default_page_manager_handlers() {
   $display->cache = array();
   $display->title = '%node:title';
   $display->uuid = '3f472208-68be-20e4-2d49-ce9936233b8f';
+  $display->storage_type = 'page_manager';
+  $display->storage_id = 'node_view_panel_context';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
@@ -220,6 +222,8 @@ function wetkit_migrate_default_page_manager_handlers() {
   $display->cache = array();
   $display->title = '%node:title';
   $display->uuid = '82a39aae-45d3-5c74-9563-9354123cf4a3';
+  $display->storage_type = 'page_manager';
+  $display->storage_id = 'node_view_panel_context_2';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();

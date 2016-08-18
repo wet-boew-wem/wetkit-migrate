@@ -10,7 +10,7 @@
 function wetkit_migrate_content_types_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-wetkit_documentation-body'
+  // Exported field_instance: 'node-wetkit_documentation-body'.
   $field_instances['node-wetkit_documentation-body'] = array(
     'bundle' => 'wetkit_documentation',
     'default_value' => NULL,
@@ -64,7 +64,7 @@ function wetkit_migrate_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-wetkit_documentation-field_column'
+  // Exported field_instance: 'node-wetkit_documentation-field_column'.
   $field_instances['node-wetkit_documentation-field_column'] = array(
     'bundle' => 'wetkit_documentation',
     'default_value' => NULL,
@@ -109,7 +109,8 @@ function wetkit_migrate_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-wetkit_documentation-field_featured_categories'
+  // Exported field_instance:
+  // 'node-wetkit_documentation-field_featured_categories'.
   $field_instances['node-wetkit_documentation-field_featured_categories'] = array(
     'bundle' => 'wetkit_documentation',
     'default_value' => NULL,
@@ -156,7 +157,7 @@ function wetkit_migrate_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-wetkit_documentation-field_uri'
+  // Exported field_instance: 'node-wetkit_documentation-field_uri'.
   $field_instances['node-wetkit_documentation-field_uri'] = array(
     'bundle' => 'wetkit_documentation',
     'default_value' => NULL,
@@ -203,7 +204,7 @@ function wetkit_migrate_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-wetkit_documentation-title_field'
+  // Exported field_instance: 'node-wetkit_documentation-title_field'.
   $field_instances['node-wetkit_documentation-title_field'] = array(
     'bundle' => 'wetkit_documentation',
     'default_value' => NULL,

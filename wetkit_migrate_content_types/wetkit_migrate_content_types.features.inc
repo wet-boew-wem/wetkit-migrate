@@ -27,5 +27,6 @@ function wetkit_migrate_content_types_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }
