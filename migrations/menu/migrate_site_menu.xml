@@ -212,6 +212,71 @@
                 <weight>3</weight>
             </section>
             <!-- END MIDFOOTER -->
+            <!-- BEGIN GCWEB MIDFOOTER -->
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_eng_1</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>Contact us</link_title>
+                <link_path>https://www.canada.ca/en/contact.html</link_path>
+                <weight>51</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_eng_2</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>Departments and agencies</link_title>
+                <link_path>https://www.canada.ca/en/government/dept.html</link_path>
+                <weight>52</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_eng_3</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>Public service and military</link_title>
+                <link_path>https://www.canada.ca/en/government/publicservice.html</link_path>
+                <weight>53</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_eng_4</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>News</link_title>
+                <link_path>http://news.gc.ca/</link_path>
+                <weight>54</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_eng_5</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>Treaties, laws and regulations</link_title>
+                <link_path>https://www.canada.ca/en/government/system/laws.html</link_path>
+                <weight>55</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_eng_6</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>Government-wide reporting</link_title>
+                <link_path>https://www.canada.ca/en/transparency/reporting.html</link_path>
+                <weight>56</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_eng_7</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>Prime Minister</link_title>
+                <link_path>http://pm.gc.ca/eng</link_path>
+                <weight>57</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_eng_8</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>How government works</link_title>
+                <link_path>https://www.canada.ca/en/government/system.html</link_path>
+                <weight>58</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_eng_9</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>Open government</link_title>
+                <link_path>http://open.canada.ca/en/</link_path>
+                <weight>59</weight>
+            </section>
+            <!-- END GCWEB MIDFOOTER -->
             <!-- BEGIN TERMS -->
             <section>
                 <source_id>menu_wet_terms_eng_1</source_id>
@@ -228,6 +293,50 @@
                 <weight>1</weight>
             </section>
             <!-- END TERMS -->
+            <!-- BEGIN GCWEB TERMS -->
+            <section variant="gcweb">
+                <source_id>menu_gcweb_terms_eng_1</source_id>
+                <menu_name>menu-wet-terms</menu_name>
+                <link_title>Feedback</link_title>
+                <link_path>https://www1.canada.ca/en/contact/feedback.html</link_path>
+                <weight>51</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_terms_eng_2</source_id>
+                <menu_name>menu-wet-terms</menu_name>
+                <link_title>Social media</link_title>
+                <link_path>https://www.canada.ca/en/social.html</link_path>
+                <weight>52</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_terms_eng_3</source_id>
+                <menu_name>menu-wet-terms</menu_name>
+                <link_title>Mobile applications</link_title>
+                <link_path>https://www.canada.ca/en/mobile.html</link_path>
+                <weight>53</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_terms_eng_4</source_id>
+                <menu_name>menu-wet-terms</menu_name>
+                <link_title>About Canada.ca</link_title>
+                <link_path>https://www1.canada.ca/en/newsite.html</link_path>
+                <weight>54</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_terms_eng_5</source_id>
+                <menu_name>menu-wet-terms</menu_name>
+                <link_title>Terms and conditions</link_title>
+                <link_path>https://www.canada.ca/en/transparency/terms.html</link_path>
+                <weight>55</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_terms_eng_6</source_id>
+                <menu_name>menu-wet-terms</menu_name>
+                <link_title>Privacy</link_title>
+                <link_path>https://www.canada.ca/en/transparency/privacy.html</link_path>
+                <weight>56</weight>
+            </section>
+            <!-- END GCWEB TERMS -->
         </english>
         <french>
             <!-- BEGIN FOOTER -->
@@ -412,6 +521,71 @@
                 <weight>3</weight>
             </section>
             <!-- END MIDFOOTER -->
+            <!-- BEGIN GCWEB MIDFOOTER -->
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_fra_1</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>Contactez-nous</link_title>
+                <link_path>https://www.canada.ca/fr/contact.html</link_path>
+                <weight>51</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_fra_2</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>Ministères et organismes</link_title>
+                <link_path>https://www.canada.ca/fr/gouvernement/min.html</link_path>
+                <weight>52</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_fra_3</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>Fonction publique et force militaire</link_title>
+                <link_path>https://www.canada.ca/fr/gouvernement/fonctionpublique.html</link_path>
+                <weight>53</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_fra_4</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>Nouvelles</link_title>
+                <link_path>http://nouvelles.gc.ca/</link_path>
+                <weight>54</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_fra_5</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>Traités, lois et règlements</link_title>
+                <link_path>https://www.canada.ca/fr/gouvernement/systeme/lois.html</link_path>
+                <weight>55</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_fra_6</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>Rapports à l'échelle du gouvernement</link_title>
+                <link_path>https://www.canada.ca/fr/transparence/rapports.html</link_path>
+                <weight>56</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_fra_7</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>Premier ministre</link_title>
+                <link_path>http://pm.gc.ca/fra</link_path>
+                <weight>57</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_fra_8</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>Comment le gouvernement fonctionne</link_title>
+                <link_path>https://www.canada.ca/fr/gouvernement/systeme.html</link_path>
+                <weight>58</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_mid_footer_fra_9</source_id>
+                <menu_name>menu-wet-mid-footer</menu_name>
+                <link_title>Gouvernement ouvert</link_title>
+                <link_path>http://ouvert.canada.ca/</link_path>
+                <weight>59</weight>
+            </section>
+            <!-- END GCWEB MIDFOOTER -->
             <!-- BEGIN TERMS -->
             <section>
                 <source_id>menu_wet_terms_fra_1</source_id>
@@ -428,6 +602,50 @@
                 <weight>2</weight>
             </section>
             <!-- END TERMS -->
+            <!-- BEGIN GCWEB TERMS -->
+            <section variant="gcweb">
+                <source_id>menu_gcweb_terms_fra_1</source_id>
+                <menu_name>menu-wet-terms</menu_name>
+                <link_title>Feedback</link_title>
+                <link_path>https://www1.canada.ca/fr/contact/retroaction.html</link_path>
+                <weight>51</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_terms_fra_2</source_id>
+                <menu_name>menu-wet-terms</menu_name>
+                <link_title>Social media</link_title>
+                <link_path>https://www.canada.ca/fr/sociaux.html</link_path>
+                <weight>52</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_terms_fra_3</source_id>
+                <menu_name>menu-wet-terms</menu_name>
+                <link_title>Mobile applications</link_title>
+                <link_path>https://www.canada.ca/fr/mobile.html</link_path>
+                <weight>53</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_terms_fra_4</source_id>
+                <menu_name>menu-wet-terms</menu_name>
+                <link_title>About Canada.ca</link_title>
+                <link_path>https://www1.canada.ca/fr/nouveausite.html</link_path>
+                <weight>54</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_terms_fra_5</source_id>
+                <menu_name>menu-wet-terms</menu_name>
+                <link_title>Terms and conditions</link_title>
+                <link_path>https://www.canada.ca/fr/transparence/avis.html</link_path>
+                <weight>55</weight>
+            </section>
+            <section variant="gcweb">
+                <source_id>menu_gcweb_terms_fra_6</source_id>
+                <menu_name>menu-wet-terms</menu_name>
+                <link_title>Privacy</link_title>
+                <link_path>https://www.canada.ca/fr/transparence/confidentialite.html</link_path>
+                <weight>56</weight>
+            </section>
+            <!-- END GCWEB TERMS -->
         </french>
     </menu_links>
 </menu_handler>

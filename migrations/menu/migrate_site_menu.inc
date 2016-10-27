@@ -101,7 +101,16 @@ class WetKitMigrateSiteMenuLinks extends XMLMigration {
 
     $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'wetkit_migrate') . '/migrations/menu/';
     $items_url = $xml_folder . 'migrate_site_menu.xml';
-    $item_xpath = '/menu_handler/menu_links/*/section';
+
+    // Custom Logic Based on Theme Selection (Internet, Intranet or Base).
+    $wxt_active = variable_get('wetkit_wetboew_theme', 'theme-wet-boew');
+    if ($wxt_active == 'theme-gcweb') {
+      $item_xpath = '/menu_handler/menu_links/*/section[@variant="gcweb"]';
+    }
+    else {
+      $item_xpath = '/menu_handler/menu_links/*/section[not(@variant="gcweb")]';
+    }
+
     $item_id_xpath = 'source_id';
 
     $items_class = new MigrateItemsXML($items_url, $item_xpath, $item_id_xpath);
