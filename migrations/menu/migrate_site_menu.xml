@@ -606,42 +606,42 @@
             <section variant="gcweb">
                 <source_id>menu_gcweb_terms_fra_1</source_id>
                 <menu_name>menu-wet-terms</menu_name>
-                <link_title>Feedback</link_title>
+                <link_title>Rétroaction</link_title>
                 <link_path>https://www1.canada.ca/fr/contact/retroaction.html</link_path>
                 <weight>51</weight>
             </section>
             <section variant="gcweb">
                 <source_id>menu_gcweb_terms_fra_2</source_id>
                 <menu_name>menu-wet-terms</menu_name>
-                <link_title>Social media</link_title>
+                <link_title>Médias sociaux</link_title>
                 <link_path>https://www.canada.ca/fr/sociaux.html</link_path>
                 <weight>52</weight>
             </section>
             <section variant="gcweb">
                 <source_id>menu_gcweb_terms_fra_3</source_id>
                 <menu_name>menu-wet-terms</menu_name>
-                <link_title>Mobile applications</link_title>
+                <link_title>Applications mobiles</link_title>
                 <link_path>https://www.canada.ca/fr/mobile.html</link_path>
                 <weight>53</weight>
             </section>
             <section variant="gcweb">
                 <source_id>menu_gcweb_terms_fra_4</source_id>
                 <menu_name>menu-wet-terms</menu_name>
-                <link_title>About Canada.ca</link_title>
+                <link_title>À propos de Canada.ca</link_title>
                 <link_path>https://www1.canada.ca/fr/nouveausite.html</link_path>
                 <weight>54</weight>
             </section>
             <section variant="gcweb">
                 <source_id>menu_gcweb_terms_fra_5</source_id>
                 <menu_name>menu-wet-terms</menu_name>
-                <link_title>Terms and conditions</link_title>
+                <link_title>Avis</link_title>
                 <link_path>https://www.canada.ca/fr/transparence/avis.html</link_path>
                 <weight>55</weight>
             </section>
             <section variant="gcweb">
                 <source_id>menu_gcweb_terms_fra_6</source_id>
                 <menu_name>menu-wet-terms</menu_name>
-                <link_title>Privacy</link_title>
+                <link_title>Confidentialité</link_title>
                 <link_path>https://www.canada.ca/fr/transparence/confidentialite.html</link_path>
                 <weight>56</weight>
             </section>
