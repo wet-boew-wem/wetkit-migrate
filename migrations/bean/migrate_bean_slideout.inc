@@ -41,7 +41,7 @@ class WetKitMigrateBeanSlideOut extends XMLMigration {
     $this->source = new MigrateSourceMultiItems($items_class, $fields);
 
     $language = 'en';
-    $this->destination = new MigrateDestinationBean($this->getEntityType(), $this->getBundle(), array('language' => $language));
+    $this->destination = new MigrateDestinationBean($this->getBundle(), array('language' => $language));
 
     $this->addFieldMapping('title', 'title')
          ->xpath('title');
