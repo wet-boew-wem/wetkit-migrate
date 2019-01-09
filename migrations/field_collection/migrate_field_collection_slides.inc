@@ -95,7 +95,7 @@ class WetKitMigrateFldCollectionSlides extends XMLMigration {
   }
 
   public function _wetkit_migrate_bean_slideshow_id($id) {
-    $result = db_query('SELECT b.destid1, b.destid2 FROM {migrate_map_wetkitmigratebeanslideshow} b WHERE b.sourceid1 = :sourceid1', array(':sourceid1' => $id));
+    $result = db_query('SELECT b.destid1 FROM {migrate_map_wetkitmigratebeanslideshow} b WHERE b.sourceid1 = :sourceid1', array(':sourceid1' => $id));
     foreach ($result as $record) {
       return $record->destid1;
     }
