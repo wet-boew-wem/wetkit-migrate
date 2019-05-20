@@ -104,7 +104,7 @@ class WetKitMigrateSiteMenuLinks extends XMLMigration {
 
     // Custom Logic Based on Theme Selection (Internet, Intranet or Base).
     $wxt_active = variable_get('wetkit_wetboew_theme', 'theme-wet-boew');
-    if ($wxt_active == 'theme-gcweb') {
+    if ($wxt_active == 'theme-gcweb' || $wxt_active == 'theme-gcweb-v5') {
       $item_xpath = '/menu_handler/menu_links/*/section[@variant="gcweb"]';
     }
     else {
